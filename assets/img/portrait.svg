@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-label="Portrait placeholder">
+  <defs>
+    <linearGradient id="p" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e9f0df"/><stop offset="100%" stop-color="#cfdec2"/>
+    </linearGradient>
+    <filter id="w"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" scale="7"/></filter>
+  </defs>
+  <rect width="640" height="800" fill="url(#p)"/>
+  <circle cx="470" cy="150" r="70" fill="#f6e6bf" opacity=".8"/>
+  <path filter="url(#w)" fill="#b6cca3" d="M0 470c110-40 190 20 300-10s200 20 340-20v360H0Z"/>
+  <path filter="url(#w)" fill="#8fae79" d="M0 570c140-30 210 24 340 4s180 16 300-14v240H0Z"/>
+  <g fill="#5d7450" opacity=".75">
+    <path d="M60 560q22-58 44 0z"/><path d="M540 566q20-52 40 0z"/>
+  </g>
+  <!-- a figure, seen from behind -->
+  <g fill="#6f8d5f">
+    <circle cx="320" cy="392" r="48"/>
+    <path d="M244 610c0-58 34-100 76-100s76 42 76 100z"/>
+  </g>
+  <path d="M272 372q48-46 96 0" fill="#4e6647"/>
+  <g fill="#fffdf7" opacity=".85">
+    <circle cx="150" cy="640" r="6"/><circle cx="196" cy="664" r="4"/><circle cx="470" cy="648" r="6"/>
+    <circle cx="512" cy="672" r="4"/><circle cx="360" cy="690" r="5"/>
+  </g>
+  <text x="320" y="756" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#5d7450" opacity=".7">
+    your photo goes here
+  </text>
+</svg>
