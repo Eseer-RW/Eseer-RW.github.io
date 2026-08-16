@@ -164,6 +164,7 @@ h3 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 .35em; text-transform: lo
 h3 em { font-style: normal; color: var(--ink-soft); }
 
 p { margin: 0 0 1.05em; }
+strong { font-weight: 600; color: var(--ink); }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: .5em;
@@ -387,7 +388,7 @@ p { margin: 0 0 1.05em; }
 
 .cards {
   display: grid; gap: 1.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
 }
 
 .card {
@@ -449,6 +450,31 @@ p { margin: 0 0 1.05em; }
 }
 .timeline__when { display: block; color: var(--blush-deep); font-size: 1.05rem; letter-spacing: .06em; }
 .timeline p { color: var(--ink-soft); margin: 0; max-width: 62ch; }
+.timeline p em { font-style: normal; color: var(--ink-faint); }
+
+/* ------------------------------------------------------------- honours --- */
+
+.awards__title {
+  font-size: 1.35rem; color: var(--sage-deep);
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 1.1rem;
+}
+
+.awards {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+}
+.awards li {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--rad);
+  padding: 1.1rem 1.3rem;
+}
+.awards__year {
+  display: block; margin-bottom: .3rem;
+  font-family: var(--serif); font-size: 1rem; letter-spacing: .06em;
+  color: var(--blush-deep);
+}
+.awards p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+.awards strong { color: var(--ink); font-weight: 600; }
 
 /* -------------------------------------------------------------- toolbox --- */
 
@@ -467,6 +493,11 @@ p { margin: 0 0 1.05em; }
 }
 .toolbox li:hover { transform: translateY(-3px); border-color: var(--sage); }
 .toolbox .ico { width: 20px; height: 20px; color: var(--sage); flex: none; }
+
+.toolbox__note {
+  margin: 1.6rem 0 0; max-width: 68ch;
+  color: var(--ink-soft); font-size: .95rem;
+}
 
 /* -------------------------------------------------------------- gallery --- */
 
