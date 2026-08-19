@@ -3,12 +3,23 @@
 Source for **https://eseer-rw.github.io/**. Plain HTML/CSS/JS — no framework, no build
 step, no `npm install`. Push to `main` and GitHub Pages redeploys.
 
+Two versions of the same content share this repo:
+
 ```
-index.html                 all the content lives here
-assets/css/styles.css      palette + layout (every colour is a token at the top)
-assets/js/main.js          theme toggle, scroll reveal, drifting leaves, lightbox
+index.html                 daylight version (ghibli-core, cream + sage)
+  assets/css/styles.css      palette + layout, day/evening themes
+  assets/js/main.js          theme toggle, reveals, drifting leaves, lightbox
+
+futuristic.html            canopy version (nocturnal, bioluminescent green)
+  assets/css/futuristic.css  single dark palette, luminous rules
+  assets/js/futuristic.js    canvas-painted night scene, reveals, lightbox
+
 assets/img/*.svg           artwork — the gallery tiles are still placeholders
 ```
+
+`index.html` is what `https://eseer-rw.github.io/` serves. To make the canopy
+version the front door instead, swap the two filenames. They cross-link from
+the footer, so both stay reachable either way.
 
 ## editing it
 
@@ -24,23 +35,32 @@ To add a role or degree, copy an `<li>` in the `.timeline` list. Newest first.
 
 ## still to do
 
-- **Photos.** The six tiles in `#gallery` are placeholder SVGs. Drop real JPGs into
-  `assets/img/`, point each `src` at them, and rewrite the captions. Square-ish and
-  ~1200px wide is plenty — the grid crops to 1:1.
-- **Portrait.** `assets/img/portrait.svg` in the about section, same idea.
+- **Photos.** The six tiles in `#gallery` are placeholder SVGs — `gallery-*.svg` on the
+  daylight version, `neon-*.svg` on the canopy one. Drop real JPGs into `assets/img/`,
+  point each `src` at them, and rewrite the captions. Square-ish and ~1200px wide is
+  plenty — the grid crops to 1:1. Both pages need updating.
+- **Portrait.** `portrait.svg` and `portrait-neon.svg`, same idea.
+- **Content lives in two files.** Edits to the bio, projects, or timeline need making in
+  both `index.html` and `futuristic.html` until you settle on one.
 - **Resume PDF.** The resume button currently scrolls to *the path so far*, which carries
   the same information. To offer a download instead, put the file at `assets/resume.pdf`
   and change that button's `href` back to `assets/resume.pdf" download`.
 
-## the palette
+## the palettes
 
-All colour lives in `:root` at the top of `styles.css`, with a matching
+**Daylight** — all colour lives in `:root` at the top of `styles.css`, with a matching
 `[data-theme="night"]` block for the evening version. Change `--sage`, `--blush`, and
 `--paper` and the whole site follows — buttons, hills, moon, and drifting leaves
 included.
 
-The site opens in whichever theme matches the visitor's OS setting, and the lantern
-button in the nav overrides it (remembered in `localStorage`).
+The daylight site opens in whichever theme matches the visitor's OS setting, and the
+lantern button in the nav overrides it (remembered in `localStorage`).
+
+**Canopy** — `futuristic.css` commits to a single nocturnal palette, so there's no
+toggle. Its tokens are `--void` (ground), `--bio` (the bioluminescent accent),
+`--lantern` (warm amber), and `--blossom`, which appears exactly once, on the pink
+tree in the hero and the quote rule. The hero scene is painted on `<canvas>` from a
+fixed seed, so the skyline is identical on every load.
 
 ## what's built in
 
@@ -54,7 +74,8 @@ button in the nav overrides it (remembered in `localStorage`).
 - Keyboard accessible: skip link, visible focus rings, real buttons
 - Prints cleanly
 
-Fonts (Cormorant Garamond + Nunito Sans) load from Google Fonts as a progressive
+Fonts (Cormorant Garamond + Nunito Sans on the daylight version; Sora, Commissioner
+and JetBrains Mono on the canopy one) load from Google Fonts as a progressive
 enhancement. If they're blocked or offline, the local serif/sans fallback stack takes
 over and the layout doesn't shift. To go fully self-hosted, delete the `<link>` tags in
 `<head>` and drop the `.woff2` files in `assets/fonts/`.

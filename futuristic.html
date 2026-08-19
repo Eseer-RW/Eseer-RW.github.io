@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="day">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Reese Wang</title>
+<title>Reese Wang — canopy</title>
 <meta name="description" content="Reese Wang — sophomore at Harvard studying mathematics, statistics and psychology. Citation integrity, LLM evaluation, and quantitative markets." />
 <meta name="author" content="Reese Wang" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Reese Wang" />
 <meta property="og:description" content="Mathematics, statistics and psychology at Harvard. I build systems that check whether what we cite is actually true." />
-<meta property="og:image" content="assets/img/gallery-1.svg" />
-<meta name="theme-color" content="#fbf7ee" />
+<meta property="og:image" content="assets/img/neon-1.svg" />
+<meta name="theme-color" content="#04100e" />
 
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/img/favicon-neon.svg" type="image/svg+xml" />
 
 <!-- webfonts are progressive enhancement: the local fallback stack in styles.css
      keeps the page looking right if these never arrive. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" media="print" onload="this.media='all'"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Commissioner:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 <noscript>
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" />
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Commissioner:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 </noscript>
 
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/futuristic.css" />
 </head>
 
 <body>
 <a class="skip-link" href="#main">skip to content</a>
-
-<!-- ============================ paper grain + drifting leaves ============================ -->
-<div class="grain" aria-hidden="true"></div>
-<canvas id="drift" class="drift" aria-hidden="true"></canvas>
 
 <!-- ============================ nav ============================ -->
 <header class="nav" id="nav">
@@ -55,10 +51,6 @@
     </nav>
 
     <div class="nav__actions">
-      <button id="theme-toggle" class="lantern" type="button" aria-pressed="false"
-              aria-label="Switch to evening theme" title="Switch to evening theme">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lantern" /></svg>
-      </button>
       <button id="menu-toggle" class="burger" type="button"
               aria-expanded="false" aria-controls="nav" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -72,64 +64,10 @@
 
 <!-- ============================ hero ============================ -->
 <section class="hero" id="top">
-  <!-- layered watercolor valley, drawn in SVG so nothing external has to load -->
-  <div class="valley" aria-hidden="true">
-    <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"  class="sky-a" />
-          <stop offset="60%" class="sky-b" />
-          <stop offset="100%" class="sky-c" />
-        </linearGradient>
-        <filter id="soft"><feGaussianBlur stdDeviation="7" /></filter>
-        <filter id="wash">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" />
-          <feDisplacementMap in="SourceGraphic" scale="6" />
-        </filter>
-      </defs>
-
-      <rect width="1440" height="620" fill="url(#sky)" />
-      <circle class="sun" cx="1130" cy="140" r="66" filter="url(#soft)" />
-
-      <!-- far ridges -->
-      <path class="ridge ridge--far" filter="url(#wash)"
-            d="M0 372 C 150 320 250 344 360 316 C 470 288 560 330 690 300 C 820 270 900 316 1030 292 C 1160 268 1300 312 1440 284 L1440 620 L0 620Z" />
-      <path class="ridge ridge--mid" filter="url(#wash)"
-            d="M0 434 C 170 392 268 424 400 400 C 540 374 640 420 780 398 C 930 374 1040 418 1180 396 C 1300 378 1370 400 1440 388 L1440 620 L0 620Z" />
-
-      <!-- treeline -->
-      <g class="trees">
-        <path d="M60 452 q22-58 44 0z"/><path d="M118 460 q18-46 36 0z"/>
-        <path d="M186 448 q26-64 52 0z"/><path d="M262 462 q20-50 40 0z"/>
-        <path d="M338 452 q24-58 48 0z"/><path d="M420 464 q18-44 36 0z"/>
-        <path d="M494 450 q26-62 52 0z"/><path d="M572 462 q20-48 40 0z"/>
-        <path d="M648 452 q24-58 48 0z"/><path d="M730 464 q18-44 36 0z"/>
-        <path d="M804 450 q26-62 52 0z"/><path d="M884 462 q20-48 40 0z"/>
-        <path d="M958 452 q24-58 48 0z"/><path d="M1040 464 q18-44 36 0z"/>
-        <path d="M1114 450 q26-62 52 0z"/><path d="M1194 462 q20-48 40 0z"/>
-        <path d="M1268 452 q24-58 48 0z"/><path d="M1350 464 q18-44 36 0z"/>
-      </g>
-
-      <!-- meadow + pond -->
-      <path class="meadow" filter="url(#wash)"
-            d="M0 470 C 220 442 420 490 640 470 C 880 448 1080 494 1440 462 L1440 620 L0 620Z" />
-      <ellipse class="pond" cx="720" cy="566" rx="430" ry="52" />
-      <g class="ripples">
-        <ellipse cx="640" cy="560" rx="72" ry="8" /><ellipse cx="830" cy="578" rx="98" ry="9" />
-        <ellipse cx="560" cy="588" rx="60" ry="7" />
-      </g>
-
-      <!-- little flowers along the bank -->
-      <g class="blooms">
-        <circle cx="180" cy="506" r="4"/><circle cx="214" cy="516" r="3"/><circle cx="256" cy="500" r="3.5"/>
-        <circle cx="1130" cy="508" r="4"/><circle cx="1176" cy="520" r="3"/><circle cx="1218" cy="502" r="3.5"/>
-        <circle cx="392" cy="522" r="3"/><circle cx="980" cy="516" r="3"/>
-      </g>
-    </svg>
-  </div>
+  <canvas id="canopy" aria-hidden="true"></canvas>
 
   <div class="hero__card reveal">
-    <p class="eyebrow"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> hello, welcome in</p>
+    <p class="eyebrow"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> signal received</p>
 
     <h1 class="display">reese wang</h1>
     <p class="lede">
@@ -169,7 +107,7 @@
     <aside class="portrait reveal">
       <div class="portrait__frame">
         <!-- swap for a real photo, e.g. assets/img/me.jpg -->
-        <img src="assets/img/portrait.svg" alt="Portrait of Reese Wang" width="640" height="800" />
+        <img src="assets/img/portrait-neon.svg" alt="Portrait of Reese Wang" width="640" height="800" />
       </div>
       <p class="portrait__caption">somewhere with good light ☘</p>
     </aside>
@@ -417,39 +355,39 @@
     <div class="gallery reveal">
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-1.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-1.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>a place you love</figcaption>
+        <figcaption>canopy</figcaption>
       </figure>
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-2.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-2.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>somewhere on campus</figcaption>
+        <figcaption>lanterns</figcaption>
       </figure>
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-3.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-3.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>a good day</figcaption>
+        <figcaption>terrace</figcaption>
       </figure>
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-4.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-4.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>something you made</figcaption>
+        <figcaption>blossom</figcaption>
       </figure>
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-5.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-5.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>a trip worth remembering</figcaption>
+        <figcaption>the walk</figcaption>
       </figure>
       <figure>
         <button type="button" class="shot" aria-label="Open photo">
-          <img src="assets/img/gallery-6.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
+          <img src="assets/img/neon-6.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
         </button>
-        <figcaption>whatever you like</figcaption>
+        <figcaption>after rain</figcaption>
       </figure>
     </div>
   </div>
@@ -496,7 +434,7 @@
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg>
   </div>
   <p class="footer__meta">
-    © <span id="year">2026</span> reese wang · made slowly, by hand · <a href="futuristic.html">canopy version →</a>
+    © <span id="year">2026</span> reese wang · <a href="index.html">daylight version →</a>
   </p>
 </footer>
 
@@ -550,6 +488,6 @@
   </defs>
 </svg>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/futuristic.js" defer></script>
 </body>
 </html>
