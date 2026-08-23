@@ -294,8 +294,7 @@ strong { font-weight: 600; color: var(--ink); }
   overflow: hidden;
 }
 
-.valley { position: absolute; inset: 0; z-index: 0; }
-.valley svg { width: 100%; height: 100%; }
+.valley { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; display: block; }
 
 .sky-a { stop-color: var(--sky-1); }
 .sky-b { stop-color: var(--sky-2); }
@@ -309,11 +308,16 @@ strong { font-weight: 600; color: var(--ink); }
 .ripples ellipse { fill: none; stroke: var(--paper); stroke-width: 1.4; opacity: .45; }
 .blooms circle { fill: var(--paper); opacity: .75; }
 
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(130% 78% at 50% 56%, transparent 38%, rgba(24, 40, 26, .5) 100%);
+}
+
 .hero__card {
   position: relative; z-index: 2;
   width: min(660px, calc(100% - 3rem));
   margin-inline: auto;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
   backdrop-filter: blur(6px);
   border: 1px solid var(--line);
   border-radius: var(--rad-lg);
@@ -406,18 +410,28 @@ strong { font-weight: 600; color: var(--ink); }
 .card__art svg { width: 100%; height: 100%; display: block; }
 
 /* each card gets its own hour of the day */
-.card__art--a { --art-sky: #e8f0dd; --art-far: #b6cca3; --art-near: #8fae79; --art-sun: #f4e3bb; --art-tree: #62815a; }
-.card__art--b { --art-sky: #ece8d6; --art-far: #c2ceaf; --art-near: #a2b98c; --art-sun: #dfe9d6; --art-tree: #6d8a5f; }
-.card__art--c { --art-sky: #e4eee9; --art-far: #aecab8; --art-near: #cbe0dc; --art-sun: #f7f4e7; --art-tree: #5f8470; }
-[data-theme="night"] .card__art--a { --art-sky: #2a3830; --art-far: #3a5142; --art-near: #2e4436; --art-sun: #d9c07f; --art-tree: #223026; }
-[data-theme="night"] .card__art--b { --art-sky: #2e352a; --art-far: #3f4d36; --art-near: #35422f; --art-sun: #d9c07f; --art-tree: #232b1f; }
-[data-theme="night"] .card__art--c { --art-sky: #263531; --art-far: #34534a; --art-near: #2f4a46; --art-sun: #cfe0d3; --art-tree: #1f302b; }
+.card__art--a { --art-sky: #a9c795; --art-far: #8fb37c; --art-near: #55804a;
+                --art-tree: #2c4d2a; --art-water: #6d9c7f; }
+.card__art--b { --art-sky: #b7c78f; --art-far: #9cb478; --art-near: #62834a;
+                --art-tree: #33502a; --art-water: #7fa075; }
+.card__art--c { --art-sky: #9dc0b0; --art-far: #82ac95; --art-near: #4b7a63;
+                --art-tree: #26463a; --art-water: #5f9282; }
 
-.a-sky  { fill: var(--art-sky); }
-.a-far  { fill: var(--art-far); }
-.a-near { fill: var(--art-near); }
-.a-sun  { fill: var(--art-sun); }
-.a-tree path { fill: var(--art-tree); }
+[data-theme="night"] .card__art--a { --art-sky: #2b3d31; --art-far: #334a36;
+                --art-near: #223625; --art-tree: #16241a; --art-water: #2c4a41; }
+[data-theme="night"] .card__art--b { --art-sky: #333a2c; --art-far: #3a4630;
+                --art-near: #283320; --art-tree: #1a2116; --art-water: #33422f; }
+[data-theme="night"] .card__art--c { --art-sky: #29403a; --art-far: #2f4a41;
+                --art-near: #1f3a33; --art-tree: #13251f; --art-water: #27443d; }
+
+.a-sky    { fill: var(--art-sky); }
+.a-far    { fill: var(--art-far); }
+.a-near   { fill: var(--art-near); }
+.a-tree   { fill: var(--art-tree); }
+.a-water  { fill: var(--art-water); }
+.a-ripple { fill: #fffbe0; opacity: .45; }
+.a-branch { fill: var(--art-tree); stroke: var(--art-tree); }
+[data-theme="night"] .a-ripple { opacity: .25; }
 
 .card__body { padding: 1.5rem 1.6rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
 .card__body p { color: var(--ink-soft); }

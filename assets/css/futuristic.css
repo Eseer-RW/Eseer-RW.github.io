@@ -317,15 +317,25 @@ strong { font-weight: 600; color: #fff; }
   background: linear-gradient(180deg, transparent 50%, var(--pane));
 }
 
-.card__art--a { --art-sky: #071a17; --art-far: #103029; --art-near: #16382f; --art-sun: #6cf2c0; --art-tree: #05100e; }
-.card__art--b { --art-sky: #08171b; --art-far: #123033; --art-near: #16383a; --art-sun: #f7c777; --art-tree: #05100e; }
-.card__art--c { --art-sky: #0a1620; --art-far: #14303f; --art-near: #193a4a; --art-sun: #ff9dbe; --art-tree: #05100e; }
+.card__art--a { --art-sky: #12302a; --art-far: #1c4438; --art-near: #123028;
+                --art-tree: #04100e; --art-water: #17423c; }
+.card__art--b { --art-sky: #16332b; --art-far: #224a35; --art-near: #163425;
+                --art-tree: #04100e; --art-water: #1a4436; }
+.card__art--c { --art-sky: #123033; --art-far: #1a4247; --art-near: #103035;
+                --art-tree: #04100e; --art-water: #164047; }
 
-.a-sky  { fill: var(--art-sky); }
-.a-far  { fill: var(--art-far); }
-.a-near { fill: var(--art-near); }
-.a-sun  { fill: var(--art-sun); opacity: .5; }
-.a-tree path { fill: var(--art-tree); }
+.a-sky    { fill: var(--art-sky); }
+.a-far    { fill: var(--art-far); }
+.a-near   { fill: var(--art-near); }
+.a-tree   { fill: var(--art-tree); }
+.a-water  { fill: var(--art-water); }
+.a-ripple { fill: var(--bio); opacity: .3; }
+.a-branch { fill: var(--art-tree); stroke: var(--art-tree); }
+
+/* the shared light overlays are tuned for daylight; dim them for the night palette */
+.card__art [fill="url(#art-glow)"] { opacity: .1; }
+.card__art [fill="url(#art-sun)"]  { opacity: .45; }
+.card__art [fill="url(#art-shore)"] { opacity: .8; }
 
 .card__body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
 .card__body p { color: var(--lum-dim); font-size: .95rem; }
