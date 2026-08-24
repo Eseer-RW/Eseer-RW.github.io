@@ -223,7 +223,7 @@ strong { font-weight: 600; color: var(--ink); }
 .nav.is-stuck { border-bottom-color: var(--line); }
 
 .nav__inner {
-  width: min(var(--wrap), 100% - 3rem); margin-inline: auto;
+  width: 100%; padding-inline: clamp(1rem, 3vw, 2.5rem);
   display: flex; align-items: center; gap: 1rem;
   height: 70px;
 }
