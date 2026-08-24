@@ -75,7 +75,9 @@
       var horizon = H * 0.66;          // where the plaza begins
       var c = sctx;
 
-      c.setTransform(1, 0, 0, 1, 0, 0);
+      /* NB: resize() set the dpr transform — do not reset it here, or the
+         scene draws in CSS pixels into a device-pixel buffer and only fills
+         the top-left corner on any display where dpr > 1. */
       c.clearRect(0, 0, W, H);
 
       /* sky */

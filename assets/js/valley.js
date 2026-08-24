@@ -11,6 +11,57 @@
   var canvas = document.getElementById("valley");
   if (!canvas || !canvas.getContext) return;
 
+  /* the scene has to follow the day/evening toggle, the way the old SVG did
+     through CSS variables. canvas cannot read those, so the palette lives here. */
+  var DAY = {
+    sky:   ["#6f9a72", "#a8c893", "#dcebbe", "#f2f4d4"],
+    bloom: ["rgba(255,253,226,.95)", "rgba(250,250,205,.55)", "rgba(226,240,180,.22)", "rgba(226,240,180,0)"],
+    ray:   ["rgba(255,255,224,.16)", "rgba(255,255,224,.05)", "rgba(255,255,224,0)"],
+    bands: [
+      { y: .13, h: .10, fill: "#a6c491", lit: "#c9dcb0", shade: "#93b481", size: .008, step: .075, r: .042 },
+      { y: .06, h: .17, fill: "#6b9459", lit: "#9dc17c", shade: "#537c47", size: .012, step: .115, r: .062 },
+      { y: .00, h: .26, fill: "#335c30", lit: "#5f9247", shade: "#22421f", size: .016, step: .16,  r: .085 }
+    ],
+    haze:  ["rgba(238,245,214,0)", "rgba(238,245,214,.26)"],
+    water: ["#7ba873", "#4d7c5c", "#2a5344", "#1d3f37"],
+    mirror:["rgba(30,62,34,.62)", "rgba(34,68,40,.24)", "rgba(34,68,40,0)"],
+    path:  ["rgba(255,253,214,.55)", "rgba(255,253,214,.14)", "rgba(255,253,214,0)"],
+    refl:  ["rgba(40,74,50,", "rgba(150,190,140,"],
+    ripple:"rgba(236,247,214,",
+    pad:   ["rgba(46,82,60,", "rgba(150,190,140,.25)"],
+    lotus: ["rgba(247,205,214,.95)", "rgba(238,170,190,.95)", "rgba(250,236,190,.95)"],
+    deep:  "#14261a", deepLit: "#33502f",
+    dapple:["rgba(255,255,220,.3)", "rgba(255,255,220,0)"],
+    mote:  "rgba(255,253,224,"
+  };
+
+  var NIGHT = {
+    sky:   ["#0d1713", "#17271f", "#24382b", "#334a36"],
+    bloom: ["rgba(228,238,208,.8)", "rgba(200,220,175,.32)", "rgba(150,185,145,.12)", "rgba(150,185,145,0)"],
+    ray:   ["rgba(214,232,190,.07)", "rgba(214,232,190,.025)", "rgba(214,232,190,0)"],
+    bands: [
+      { y: .13, h: .10, fill: "#425c49", lit: "#61805f", shade: "#37503f", size: .008, step: .075, r: .042 },
+      { y: .06, h: .17, fill: "#2b4131", lit: "#476644", shade: "#213424", size: .012, step: .115, r: .062 },
+      { y: .00, h: .26, fill: "#16281c", lit: "#2f4b2e", shade: "#0e1a12", size: .016, step: .16,  r: .085 }
+    ],
+    haze:  ["rgba(150,180,150,0)", "rgba(150,180,150,.16)"],
+    water: ["#31514540", "#1e3831", "#132723", "#0c1a17"],
+    mirror:["rgba(8,20,13,.6)", "rgba(10,24,16,.24)", "rgba(10,24,16,0)"],
+    path:  ["rgba(226,236,205,.4)", "rgba(226,236,205,.1)", "rgba(226,236,205,0)"],
+    refl:  ["rgba(10,24,16,", "rgba(110,145,112,"],
+    ripple:"rgba(214,232,190,",
+    pad:   ["rgba(14,30,20,", "rgba(90,130,95,.22)"],
+    lotus: ["rgba(206,158,172,.88)", "rgba(184,128,148,.88)", "rgba(214,198,152,.9)"],
+    deep:  "#08110b", deepLit: "#1d3220",
+    dapple:["rgba(214,232,190,.16)", "rgba(214,232,190,0)"],
+    mote:  "rgba(226,240,200,"
+  };
+
+  var root = document.documentElement;
+  function palette() {
+    return root.getAttribute("data-theme") === "night" ? NIGHT : DAY;
+  }
+
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ctx = canvas.getContext("2d");
   var scene = document.createElement("canvas");
@@ -63,26 +114,29 @@
     var rand = rng(19940721);
     var horizon = H * 0.68;
     var c = sctx;
+    var P = palette();
 
-    c.setTransform(1, 0, 0, 1, 0, 0);
+    /* NB: resize() set the dpr transform — do not reset it here, or the
+       scene draws in CSS pixels into a device-pixel buffer and only fills
+       the top-left corner on any display where dpr > 1. */
     c.clearRect(0, 0, W, H);
 
     /* --- sky: bright behind the canopy, deepening upward --- */
     var sky = c.createLinearGradient(0, 0, 0, horizon);
-    sky.addColorStop(0, "#6f9a72");
-    sky.addColorStop(0.45, "#a8c893");
-    sky.addColorStop(0.8, "#dcebbe");
-    sky.addColorStop(1, "#f2f4d4");
+    sky.addColorStop(0, P.sky[0]);
+    sky.addColorStop(0.45, P.sky[1]);
+    sky.addColorStop(0.8, P.sky[2]);
+    sky.addColorStop(1, P.sky[3]);
     c.fillStyle = sky;
     c.fillRect(0, 0, W, horizon);
 
     /* --- the sun, sitting just above the far treeline --- */
     var sunX = W * 0.66, sunY = H * 0.2;
     var bloom = c.createRadialGradient(sunX, sunY, 0, sunX, sunY, W * 0.34);
-    bloom.addColorStop(0, "rgba(255, 253, 226, .95)");
-    bloom.addColorStop(0.18, "rgba(250, 250, 205, .4)");
-    bloom.addColorStop(0.5, "rgba(226, 240, 180, .14)");
-    bloom.addColorStop(1, "rgba(226, 240, 180, 0)");
+    bloom.addColorStop(0, P.bloom[0]);
+    bloom.addColorStop(0.18, P.bloom[1]);
+    bloom.addColorStop(0.5, P.bloom[2]);
+    bloom.addColorStop(1, P.bloom[3]);
     c.fillStyle = bloom;
     c.fillRect(0, 0, W, horizon + H * 0.1);
 
@@ -96,9 +150,9 @@
       c.translate(sunX, sunY);
       c.rotate(spread);
       var ray = c.createLinearGradient(0, 0, 0, H * 0.9);
-      ray.addColorStop(0, "rgba(255, 255, 224, .16)");
-      ray.addColorStop(0.6, "rgba(255, 255, 224, .05)");
-      ray.addColorStop(1, "rgba(255, 255, 224, 0)");
+      ray.addColorStop(0, P.ray[0]);
+      ray.addColorStop(0.6, P.ray[1]);
+      ray.addColorStop(1, P.ray[2]);
       c.fillStyle = ray;
       c.beginPath();
       c.moveTo(-w * 0.18, 0);
@@ -112,14 +166,7 @@
     c.restore();
 
     /* --- receding treelines: pale and hazy far, dark and detailed near --- */
-    var bands = [
-      { y: 0.13, h: 0.10, fill: "#a6c491", lit: "#c9dcb0", shade: "#93b481",
-        size: 0.008,  step: 0.075, r: 0.042 },
-      { y: 0.06, h: 0.17, fill: "#6b9459", lit: "#9dc17c", shade: "#537c47",
-        size: 0.012,  step: 0.115, r: 0.062 },
-      { y: 0.00, h: 0.26, fill: "#335c30", lit: "#5f9247", shade: "#22421f",
-        size: 0.016,  step: 0.16,  r: 0.085 }
-    ];
+    var bands = P.bands;
 
     for (var b = 0; b < bands.length; b++) {
       var bd = bands[b];
@@ -167,33 +214,33 @@
 
     /* haze between the layers — this is what sells the distance */
     var haze = c.createLinearGradient(0, horizon - H * 0.3, 0, horizon);
-    haze.addColorStop(0, "rgba(238, 245, 214, 0)");
-    haze.addColorStop(1, "rgba(238, 245, 214, .26)");
+    haze.addColorStop(0, P.haze[0]);
+    haze.addColorStop(1, P.haze[1]);
     c.fillStyle = haze;
     c.fillRect(0, horizon - H * 0.3, W, H * 0.3);
 
     /* --- the pond --- */
     var water = c.createLinearGradient(0, horizon, 0, H);
-    water.addColorStop(0, "#7ba873");
-    water.addColorStop(0.3, "#4d7c5c");
-    water.addColorStop(0.75, "#2a5344");
-    water.addColorStop(1, "#1d3f37");
+    water.addColorStop(0, P.water[0]);
+    water.addColorStop(0.3, P.water[1]);
+    water.addColorStop(0.75, P.water[2]);
+    water.addColorStop(1, P.water[3]);
     c.fillStyle = water;
     c.fillRect(0, horizon, W, H - horizon);
 
     /* the treeline's own reflection, hugging the shore */
     var mirror = c.createLinearGradient(0, horizon, 0, horizon + (H - horizon) * 0.45);
-    mirror.addColorStop(0, "rgba(30, 62, 34, .62)");
-    mirror.addColorStop(0.4, "rgba(34, 68, 40, .24)");
-    mirror.addColorStop(1, "rgba(34, 68, 40, 0)");
+    mirror.addColorStop(0, P.mirror[0]);
+    mirror.addColorStop(0.4, P.mirror[1]);
+    mirror.addColorStop(1, P.mirror[2]);
     c.fillStyle = mirror;
     c.fillRect(0, horizon, W, (H - horizon) * 0.45);
 
     /* the sun's path down the water */
     var path = c.createLinearGradient(0, horizon, 0, H);
-    path.addColorStop(0, "rgba(255, 253, 214, .55)");
-    path.addColorStop(0.45, "rgba(255, 253, 214, .14)");
-    path.addColorStop(1, "rgba(255, 253, 214, 0)");
+    path.addColorStop(0, P.path[0]);
+    path.addColorStop(0.45, P.path[1]);
+    path.addColorStop(1, P.path[2]);
     c.fillStyle = path;
     c.fillRect(sunX - W * 0.055, horizon, W * 0.11, H - horizon);
 
@@ -204,9 +251,9 @@
       var rh = (H - horizon) * (0.25 + rand() * 0.55);
       var dark = rand() > 0.45;
       var rg2 = c.createLinearGradient(0, horizon, 0, horizon + rh);
-      rg2.addColorStop(0, dark ? "rgba(40, 74, 50, .5)" : "rgba(150, 190, 140, .32)");
-      rg2.addColorStop(0.5, dark ? "rgba(40, 74, 50, .16)" : "rgba(150, 190, 140, .1)");
-      rg2.addColorStop(1, "rgba(40, 74, 50, 0)");
+      rg2.addColorStop(0, (dark ? P.refl[0] : P.refl[1]) + (dark ? ".5)" : ".32)"));
+      rg2.addColorStop(0.5, (dark ? P.refl[0] : P.refl[1]) + (dark ? ".16)" : ".1)"));
+      rg2.addColorStop(1, P.refl[0] + "0)");
       c.fillStyle = rg2;
       c.fillRect(rx, horizon, rw, rh);
     }
@@ -216,7 +263,7 @@
       var t = Math.pow(rand(), 1.8);
       var ry = horizon + (H - horizon) * t;
       var rlen = W * (0.008 + rand() * 0.05) * (0.35 + t * 1.2);
-      c.fillStyle = "rgba(236, 247, 214," + (0.05 + rand() * 0.26 * (1 - t * 0.7)) + ")";
+      c.fillStyle = P.ripple + (0.05 + rand() * 0.26 * (1 - t * 0.7)) + ")";
       c.beginPath();
       c.ellipse(rand() * W, ry, rlen, Math.max(0.6, (H - horizon) * 0.004 * (0.3 + t)),
                 0, 0, Math.PI * 2);
@@ -229,11 +276,11 @@
       var px = rand() * W;
       var py = horizon + (H - horizon) * t2;
       var pr = (H - horizon) * 0.035 * (0.4 + t2 * 1.4);
-      c.fillStyle = "rgba(46, 82, 60," + (0.5 + rand() * 0.35) + ")";
+      c.fillStyle = P.pad[0] + (0.5 + rand() * 0.35) + ")";
       c.beginPath();
       c.ellipse(px, py, pr, pr * 0.42, 0, 0, Math.PI * 2);
       c.fill();
-      c.fillStyle = "rgba(150, 190, 140,.25)";
+      c.fillStyle = P.pad[1];
       c.beginPath();
       c.ellipse(px - pr * 0.15, py - pr * 0.1, pr * 0.6, pr * 0.24, 0, 0, Math.PI * 2);
       c.fill();
@@ -242,17 +289,17 @@
       var fy = horizon + (H - horizon) * f[1];
       var fr = (H - horizon) * 0.045;
       for (var pt = 0; pt < 7; pt++) {
-        c.fillStyle = pt % 2 ? "rgba(247, 205, 214,.95)" : "rgba(238, 170, 190,.95)";
+        c.fillStyle = pt % 2 ? P.lotus[0] : P.lotus[1];
         leaf(c, f[0], fy, fr, fr * 0.34, (pt / 7) * Math.PI * 2 - Math.PI / 2);
       }
-      c.fillStyle = "rgba(250, 236, 190,.95)";
+      c.fillStyle = P.lotus[2];
       c.beginPath();
       c.arc(f[0], fy, fr * 0.16, 0, Math.PI * 2);
       c.fill();
     });
 
     /* --- the overhanging branch: the nearest thing in frame, so the darkest --- */
-    var deep = "#14261a", deepLit = "#33502f";
+    var deep = P.deep, deepLit = P.deepLit;
 
     c.strokeStyle = deep;
     c.lineCap = "round";
@@ -296,8 +343,8 @@
       var dx = rand() * W, dy = rand() * H * 0.95;
       var dr = W * (0.004 + rand() * 0.016);
       var g = c.createRadialGradient(dx, dy, 0, dx, dy, dr);
-      g.addColorStop(0, "rgba(255, 255, 220,.3)");
-      g.addColorStop(1, "rgba(255, 255, 220, 0)");
+      g.addColorStop(0, P.dapple[0]);
+      g.addColorStop(1, P.dapple[1]);
       c.fillStyle = g;
       c.beginPath();
       c.arc(dx, dy, dr, 0, Math.PI * 2);
@@ -354,7 +401,7 @@
       m.y -= m.rise;
       if (m.y + m.r < 0) { m.y = H + 8; m.x = Math.random() * W; }
       var a = 0.2 + Math.abs(Math.sin(m.phase)) * 0.45;
-      ctx.fillStyle = "rgba(255, 253, 224," + a + ")";
+      ctx.fillStyle = palette().mote + a + ")";
       ctx.beginPath();
       ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
       ctx.fill();
@@ -372,6 +419,15 @@
     if (document.hidden) { running = false; }
     else if (!running && !reduceMotion) { running = true; requestAnimationFrame(frame); }
   });
+
+  /* the lantern toggle swaps data-theme; repaint the scene to match */
+  if (typeof MutationObserver === "function") {
+    new MutationObserver(function () {
+      if (!W || !H) return;
+      paint();
+      if (reduceMotion) blit();
+    }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  }
 
   resize();
   if (!reduceMotion) requestAnimationFrame(frame);
