@@ -78,8 +78,8 @@
       <a class="btn btn--primary" href="#journey"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg> resume</a>
       <a class="btn" href="https://www.linkedin.com/in/reese-wang-harvard-freshman/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg> linkedin</a>
       <a class="btn" href="https://github.com/Eseer-RW" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg> github</a>
-      <a class="btn" href="https://substack.com/@reese855438" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
-      <a class="btn" href="mailto:reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> email</a>
+      <a class="btn" href="https://substack.com/@univerese553" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
+      <button class="btn" type="button" data-mail="reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> email</button>
     </div>
 
     <p class="hero__note">cambridge, massachusetts</p>
@@ -326,10 +326,10 @@
       <p class="todo">A sentence or two inviting people to get in touch.</p>
 
       <div class="hero__links hero__links--center">
-        <a class="btn btn--primary" href="mailto:reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> reesewang@college.harvard.edu</a>
+        <button class="btn btn--primary" type="button" data-mail="reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> reesewang@college.harvard.edu</button>
         <a class="btn" href="https://www.linkedin.com/in/reese-wang-harvard-freshman/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg> linkedin</a>
         <a class="btn" href="https://github.com/Eseer-RW" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg> github</a>
-        <a class="btn" href="https://substack.com/@reese855438" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
+        <a class="btn" href="https://substack.com/@univerese553" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
         <a class="btn" href="https://www.instagram.com/uni_v_erese553/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg> instagram</a>
       </div>
     </div>
@@ -355,6 +355,23 @@
   <button class="lightbox__close" type="button" aria-label="Close">×</button>
   <img id="lightbox-img" src="" alt="" />
   <p id="lightbox-cap" class="lightbox__cap"></p>
+</dialog>
+
+<!-- ============================ email popover ============================ -->
+<dialog id="mailbox" class="mailbox" aria-labelledby="mailbox-title">
+  <div class="mailbox__inner">
+    <button class="mailbox__close" type="button" aria-label="Close">×</button>
+    <h2 class="mailbox__title" id="mailbox-title">say hello</h2>
+    <p class="mailbox__lead">here it is — copy it wherever you like.</p>
+    <div class="mailbox__row">
+      <input id="mailbox-addr" class="mailbox__addr" type="text" readonly
+             value="reesewang@college.harvard.edu" aria-label="Email address" spellcheck="false" />
+      <button id="mailbox-copy" class="btn btn--primary" type="button">copy</button>
+    </div>
+    <p class="mailbox__hint">
+      or <a href="mailto:reesewang@college.harvard.edu">open it in your mail app</a>
+    </p>
+  </div>
 </dialog>
 
 <!-- ============================ icon + illustration sprite ============================ -->

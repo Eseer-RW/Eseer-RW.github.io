@@ -98,6 +98,8 @@ fixed seed, so the skyline is identical on every load.
 - Scroll-reveal animations and a vine-coloured reading progress bar
 - Scroll-spy nav highlighting the section you're in
 - Click-to-enlarge photo viewer using a native `<dialog>`
+- Email button opens a small copyable popover instead of a `mailto:` link, since
+  `mailto:` does nothing for a visitor with no desktop mail client configured
 - Fully responsive, with a collapsing mobile menu
 - Respects `prefers-reduced-motion` (no drift, no reveals, no smooth scroll)
 - Keyboard accessible: skip link, visible focus rings, real buttons

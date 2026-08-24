@@ -243,6 +243,60 @@
     requestAnimationFrame(frame);
   }
 
+  /* --------------------------------------------------------- email popover */
+  /* a mailto: link is useless to anyone without a desktop mail client set up,
+     so the address is shown in a small dialog you can copy from instead. */
+
+  var mailbox = document.getElementById("mailbox");
+  var mailButtons = document.querySelectorAll("[data-mail]");
+  var canDialog = mailbox && typeof mailbox.showModal === "function";
+
+  if (canDialog) {
+    var mailAddr = document.getElementById("mailbox-addr");
+    var mailCopy = document.getElementById("mailbox-copy");
+
+    var resetCopy = function () { mailCopy.textContent = "copy"; };
+
+    mailButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        resetCopy();
+        mailbox.showModal();
+        mailAddr.focus();
+        mailAddr.select();
+      });
+    });
+
+    mailCopy.addEventListener("click", function () {
+      var done = function () {
+        mailCopy.textContent = "copied";
+        setTimeout(resetCopy, 1800);
+      };
+      var fallback = function () {
+        mailAddr.select();
+        try { document.execCommand("copy"); done(); } catch (e) { /* nothing else to try */ }
+      };
+      mailAddr.select();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(mailAddr.value).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+
+    mailbox.querySelector(".mailbox__close")
+           .addEventListener("click", function () { mailbox.close(); });
+    mailbox.addEventListener("click", function (e) {
+      if (e.target === mailbox) mailbox.close();
+    });
+  } else {
+    /* no <dialog> support: fall back to the mail app */
+    mailButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        window.location.href = "mailto:" + btn.getAttribute("data-mail");
+      });
+    });
+  }
+
   /* ------------------------------------------------------------- the year */
 
   var year = document.getElementById("year");

@@ -634,3 +634,43 @@ strong { font-weight: 600; color: var(--ink); }
   content: ""; position: absolute; left: 0; top: .62em;
   width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
 }
+
+
+/* -------------------------------------------------------- email popover --- */
+
+.mailbox {
+  border: 1px solid var(--line); padding: 0;
+  width: min(92vw, 500px);
+  background: var(--card); color: var(--ink);
+  border-radius: var(--rad-lg); box-shadow: var(--shadow-lift);
+}
+.mailbox::backdrop { background: rgba(30, 38, 32, .55); backdrop-filter: blur(3px); }
+.mailbox__inner { position: relative; padding: 1.7rem 1.7rem 1.5rem; }
+.mailbox__title {
+  font-family: var(--serif); font-weight: 600; text-transform: lowercase;
+  font-size: 1.6rem; color: var(--sage-deep); margin: 0 0 .2em;
+}
+.mailbox__lead { margin: 0 0 1rem; color: var(--ink-soft); font-size: .95rem; }
+.mailbox__row { display: flex; gap: .5rem; align-items: stretch; }
+.mailbox__addr {
+  flex: 1; min-width: 0; font: inherit; font-size: .9rem;
+  padding: .6em .8em; border-radius: 12px;
+  border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink);
+}
+.mailbox__addr:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+.mailbox__row .btn { flex: none; }
+.mailbox__hint { margin: .9rem 0 0; font-size: .85rem; color: var(--ink-faint); }
+.mailbox__close {
+  position: absolute; top: 10px; right: 12px;
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink-soft);
+  font-size: 1.2rem; line-height: 1;
+}
+.mailbox__close:hover { color: var(--ink); }
+
+/* on a phone the address and the button will not fit side by side */
+@media (max-width: 470px) {
+  .mailbox__inner { padding: 1.4rem 1.2rem 1.2rem; }
+  .mailbox__row { flex-direction: column; }
+  .mailbox__row .btn { justify-content: center; }
+}
