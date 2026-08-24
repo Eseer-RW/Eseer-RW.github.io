@@ -411,12 +411,12 @@ strong { font-weight: 600; color: var(--ink); }
 
 /* each card gets its own hour of the day */
 /* early morning: light behind the canopy, so each layer sits well above black */
-.card__art--a { --art-sky: #cbe0ab; --art-far: #a9c98c; --art-near: #6f9a52;
-                --art-tree: #35552c; --art-water: #9dc199; }
-.card__art--b { --art-sky: #dbe4ab; --art-far: #bfcf8c; --art-near: #849c52;
-                --art-tree: #3d5a2c; --art-water: #adc292; }
-.card__art--c { --art-sky: #c6dfcd; --art-far: #a4c9b1; --art-near: #6b9a80;
-                --art-tree: #2f5244; --art-water: #8bb7a6; }
+.card__art--a { --art-sky: #d9ebbb; --art-far: #b8d79b; --art-near: #82ad60;
+                --art-tree: #4e7c3c; --art-water: #aed0a6; }
+.card__art--b { --art-sky: #e6edb9; --art-far: #ccdb9a; --art-near: #97b060;
+                --art-tree: #587f3d; --art-water: #bccf9f; }
+.card__art--c { --art-sky: #d4e9da; --art-far: #b3d7c0; --art-near: #7cad92;
+                --art-tree: #43705c; --art-water: #9cc4b3; }
 
 [data-theme="night"] .card__art--a { --art-sky: #2b3d31; --art-far: #334a36;
                 --art-near: #223625; --art-tree: #16241a; --art-water: #2c4a41; }

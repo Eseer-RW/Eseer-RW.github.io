@@ -16,24 +16,24 @@
   var DAY = {
     /* early morning: a low sun behind the trees, mist holding the light,
        foliage yellow-green where it is lit and cool where it is not */
-    sky:   ["#93bcc4", "#c3dcbb", "#f0e9b8", "#fff7d6"],
+    sky:   ["#a9d0d2", "#d3e8c6", "#f5efc4", "#fffce6"],
     bloom: ["rgba(255,253,240,1)", "rgba(255,240,178,.7)", "rgba(255,216,130,.3)", "rgba(255,216,130,0)"],
     ray:   ["rgba(255,240,180,.42)", "rgba(255,240,180,.13)", "rgba(255,240,180,0)"],
     bands: [
-      { y: .13, h: .10, fill: "#c6dbab", lit: "#eaf3cd", shade: "#aec897", size: .008, step: .075, r: .042 },
-      { y: .06, h: .17, fill: "#88b262", lit: "#cbe394", shade: "#6a9550", size: .012, step: .115, r: .062 },
-      { y: .00, h: .26, fill: "#456f34", lit: "#93c254", shade: "#2c5124", size: .016, step: .16,  r: .085 }
+      { y: .13, h: .10, fill: "#d7e8bd", lit: "#f2facf", shade: "#c0d7a6", size: .008, step: .075, r: .042 },
+      { y: .06, h: .17, fill: "#9ec777", lit: "#ddf0ab", shade: "#82ad5e", size: .012, step: .115, r: .062 },
+      { y: .00, h: .26, fill: "#659a49", lit: "#aada6d", shade: "#4c7a3b", size: .016, step: .16,  r: .085 }
     ],
     haze:  ["rgba(255,244,198,0)", "rgba(255,244,198,.15)"],
-    water: ["#d5dfa2", "#a6c48c", "#6f9a78", "#537f63"],
-    mirror:["rgba(74,110,72,.3)", "rgba(80,118,78,.11)", "rgba(80,118,78,0)"],
+    water: ["#e2eaae", "#bcd6a0", "#93b993", "#77a081"],
+    mirror:["rgba(102,140,92,.24)", "rgba(108,146,96,.09)", "rgba(108,146,96,0)"],
     path:  ["rgba(255,243,190,.85)", "rgba(255,243,190,.26)", "rgba(255,243,190,0)"],
-    refl:  ["rgba(74,110,72,", "rgba(206,228,178,"],
+    refl:  ["rgba(102,140,92,", "rgba(216,236,190,"],
     ripple:"rgba(255,248,210,",
-    pad:   ["rgba(72,112,76,", "rgba(190,220,165,.3)"],
+    pad:   ["rgba(96,138,90,", "rgba(206,232,180,.32)"],
     lotus: ["rgba(252,214,220,.96)", "rgba(244,178,196,.96)", "rgba(255,241,192,.96)"],
-    bank:  "#6b8f43", bankLit: "#b0cb66", bankEdge: "#436030", reed: "#47682f",
-    deep:  "#1f3421", deepLit: "#4b7233",
+    bank:  "#86ac57", bankLit: "#c6dd82", bankEdge: "#5e8040", reed: "#5f8340",
+    deep:  "#40693a", deepLit: "#84b356",
     dapple:["rgba(255,244,186,.46)", "rgba(255,244,186,0)"],
     mote:  "rgba(255,246,200,"
   };
