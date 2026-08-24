@@ -317,12 +317,14 @@ strong { font-weight: 600; color: #fff; }
   background: linear-gradient(180deg, transparent 50%, var(--pane));
 }
 
-.card__art--a { --art-sky: #12302a; --art-far: #1c4438; --art-near: #123028;
+.card__art--1 { --art-sky: #12302a; --art-far: #1c4438; --art-near: #123028;
                 --art-tree: #04100e; --art-water: #17423c; }
-.card__art--b { --art-sky: #16332b; --art-far: #224a35; --art-near: #163425;
+.card__art--2 { --art-sky: #16332b; --art-far: #224a35; --art-near: #163425;
                 --art-tree: #04100e; --art-water: #1a4436; }
-.card__art--c { --art-sky: #123033; --art-far: #1a4247; --art-near: #103035;
+.card__art--3 { --art-sky: #123033; --art-far: #1a4247; --art-near: #103035;
                 --art-tree: #04100e; --art-water: #164047; }
+.card__art--4 { --art-sky: #182f26; --art-far: #26463a; --art-near: #17322a;
+                --art-tree: #04100e; --art-water: #1c4740; }
 
 .a-sky    { fill: var(--art-sky); }
 .a-far    { fill: var(--art-far); }

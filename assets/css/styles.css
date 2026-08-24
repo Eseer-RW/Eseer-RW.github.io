@@ -392,21 +392,15 @@ strong { font-weight: 600; color: var(--ink); }
 .card__art { aspect-ratio: 400 / 220; background: var(--paper-3); }
 .card__art svg { width: 100%; height: 100%; display: block; }
 
-/* each card gets its own hour of the day */
-/* early morning: light behind the canopy, so each layer sits well above black */
-.card__art--a { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;
+/* each card gets its own clearing and its own hour */
+.card__art--1 { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;
                 --art-tree: #75a25a; --art-water: #c8dfc0; }
-.card__art--b { --art-sky: #f1f3d2; --art-far: #ddebb5; --art-near: #b3c581;
+.card__art--2 { --art-sky: #eef5d6; --art-far: #d8ecb8; --art-near: #adcd84;
+                --art-tree: #7fa85e; --art-water: #cfe4c2; }
+.card__art--3 { --art-sky: #e2f0e4; --art-far: #c7e2d0; --art-near: #99c4ac;
+                --art-tree: #6a9c85; --art-water: #b9d8ca; }
+.card__art--4 { --art-sky: #f1f3d2; --art-far: #ddebb5; --art-near: #b3c581;
                 --art-tree: #85a45c; --art-water: #d2dfb8; }
-.card__art--c { --art-sky: #e4f2e6; --art-far: #cbe4d3; --art-near: #9fc7b2;
-                --art-tree: #6e9c88; --art-water: #bcd8cc; }
-
-[data-theme="night"] .card__art--a { --art-sky: #2b3d31; --art-far: #334a36;
-                --art-near: #223625; --art-tree: #16241a; --art-water: #2c4a41; }
-[data-theme="night"] .card__art--b { --art-sky: #333a2c; --art-far: #3a4630;
-                --art-near: #283320; --art-tree: #1a2116; --art-water: #33422f; }
-[data-theme="night"] .card__art--c { --art-sky: #29403a; --art-far: #2f4a41;
-                --art-near: #1f3a33; --art-tree: #13251f; --art-water: #27443d; }
 
 .a-sky    { fill: var(--art-sky); }
 .a-far    { fill: var(--art-far); }
