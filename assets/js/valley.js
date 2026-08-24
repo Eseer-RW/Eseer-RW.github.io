@@ -14,26 +14,28 @@
   /* the scene has to follow the day/evening toggle, the way the old SVG did
      through CSS variables. canvas cannot read those, so the palette lives here. */
   var DAY = {
-    sky:   ["#6f9a72", "#a8c893", "#dcebbe", "#f2f4d4"],
-    bloom: ["rgba(255,253,226,.95)", "rgba(250,250,205,.55)", "rgba(226,240,180,.22)", "rgba(226,240,180,0)"],
-    ray:   ["rgba(255,255,224,.16)", "rgba(255,255,224,.05)", "rgba(255,255,224,0)"],
+    /* early morning: a low sun behind the trees, mist holding the light,
+       foliage yellow-green where it is lit and cool where it is not */
+    sky:   ["#93bcc4", "#c3dcbb", "#f0e9b8", "#fff7d6"],
+    bloom: ["rgba(255,253,240,1)", "rgba(255,240,178,.7)", "rgba(255,216,130,.3)", "rgba(255,216,130,0)"],
+    ray:   ["rgba(255,240,180,.42)", "rgba(255,240,180,.13)", "rgba(255,240,180,0)"],
     bands: [
-      { y: .13, h: .10, fill: "#a6c491", lit: "#c9dcb0", shade: "#93b481", size: .008, step: .075, r: .042 },
-      { y: .06, h: .17, fill: "#6b9459", lit: "#9dc17c", shade: "#537c47", size: .012, step: .115, r: .062 },
-      { y: .00, h: .26, fill: "#335c30", lit: "#5f9247", shade: "#22421f", size: .016, step: .16,  r: .085 }
+      { y: .13, h: .10, fill: "#c6dbab", lit: "#eaf3cd", shade: "#aec897", size: .008, step: .075, r: .042 },
+      { y: .06, h: .17, fill: "#88b262", lit: "#cbe394", shade: "#6a9550", size: .012, step: .115, r: .062 },
+      { y: .00, h: .26, fill: "#456f34", lit: "#93c254", shade: "#2c5124", size: .016, step: .16,  r: .085 }
     ],
-    haze:  ["rgba(238,245,214,0)", "rgba(238,245,214,.18)"],
-    water: ["#7ba873", "#4d7c5c", "#2a5344", "#1d3f37"],
-    mirror:["rgba(30,62,34,.62)", "rgba(34,68,40,.24)", "rgba(34,68,40,0)"],
-    path:  ["rgba(255,253,214,.55)", "rgba(255,253,214,.14)", "rgba(255,253,214,0)"],
-    refl:  ["rgba(40,74,50,", "rgba(150,190,140,"],
-    ripple:"rgba(236,247,214,",
-    pad:   ["rgba(46,82,60,", "rgba(150,190,140,.25)"],
-    lotus: ["rgba(247,205,214,.95)", "rgba(238,170,190,.95)", "rgba(250,236,190,.95)"],
-    bank:  "#41603a", bankLit: "#618a4c", bankEdge: "#2d4529", reed: "#2b4526",
-    deep:  "#14261a", deepLit: "#33502f",
-    dapple:["rgba(255,255,220,.3)", "rgba(255,255,220,0)"],
-    mote:  "rgba(255,253,224,"
+    haze:  ["rgba(255,244,198,0)", "rgba(255,244,198,.15)"],
+    water: ["#d5dfa2", "#a6c48c", "#6f9a78", "#537f63"],
+    mirror:["rgba(74,110,72,.3)", "rgba(80,118,78,.11)", "rgba(80,118,78,0)"],
+    path:  ["rgba(255,243,190,.85)", "rgba(255,243,190,.26)", "rgba(255,243,190,0)"],
+    refl:  ["rgba(74,110,72,", "rgba(206,228,178,"],
+    ripple:"rgba(255,248,210,",
+    pad:   ["rgba(72,112,76,", "rgba(190,220,165,.3)"],
+    lotus: ["rgba(252,214,220,.96)", "rgba(244,178,196,.96)", "rgba(255,241,192,.96)"],
+    bank:  "#6b8f43", bankLit: "#b0cb66", bankEdge: "#436030", reed: "#47682f",
+    deep:  "#1f3421", deepLit: "#4b7233",
+    dapple:["rgba(255,244,186,.46)", "rgba(255,244,186,0)"],
+    mote:  "rgba(255,246,200,"
   };
 
   var NIGHT = {
@@ -133,8 +135,8 @@
     c.fillRect(0, 0, W, treeBase);
 
     /* --- the sun, sitting just above the far treeline --- */
-    var sunX = W * 0.66, sunY = H * 0.2;
-    var bloom = c.createRadialGradient(sunX, sunY, 0, sunX, sunY, W * 0.34);
+    var sunX = W * 0.775, sunY = H * 0.25;
+    var bloom = c.createRadialGradient(sunX, sunY, 0, sunX, sunY, W * 0.55);
     bloom.addColorStop(0, P.bloom[0]);
     bloom.addColorStop(0.18, P.bloom[1]);
     bloom.addColorStop(0.5, P.bloom[2]);
@@ -142,12 +144,22 @@
     c.fillStyle = bloom;
     c.fillRect(0, 0, W, treeBase + H * 0.1);
 
+    /* the disc itself, so there is a source for the light rather than a wash */
+    var core = c.createRadialGradient(sunX, sunY, 0, sunX, sunY, W * 0.055);
+    core.addColorStop(0, "rgba(255,255,252,1)");
+    core.addColorStop(0.45, "rgba(255,250,225,.9)");
+    core.addColorStop(1, "rgba(255,240,190,0)");
+    c.fillStyle = core;
+    c.beginPath();
+    c.arc(sunX, sunY, W * 0.055, 0, Math.PI * 2);
+    c.fill();
+
     /* --- light shafts through the canopy --- */
     c.save();
     c.globalCompositeOperation = "lighter";
-    for (var r = 0; r < 7; r++) {
-      var spread = (r - 3) * 0.14 + (rand() - 0.5) * 0.05;
-      var w = W * (0.03 + rand() * 0.05);
+    for (var r = 0; r < 11; r++) {
+      var spread = (r - 5) * 0.105 + (rand() - 0.5) * 0.04;
+      var w = W * (0.025 + rand() * 0.055);
       c.save();
       c.translate(sunX, sunY);
       c.rotate(spread);
@@ -394,6 +406,13 @@
     }
     c.globalAlpha = 1;
 
+    /* warm sky reflected into the shallows */
+    var warm = c.createLinearGradient(0, shoreY, 0, shoreY + (H - shoreY) * 0.55);
+    warm.addColorStop(0, "rgba(255,242,186,.3)");
+    warm.addColorStop(1, "rgba(255,242,186,0)");
+    c.fillStyle = warm;
+    c.fillRect(-20, shoreY - H * 0.02, W + 40, (H - shoreY) * 0.6);
+
     /* ripple highlights, tighter near the shore */
     for (var rp = 0; rp < 120; rp++) {
       var t = Math.pow(rand(), 1.8);
@@ -496,9 +515,9 @@
     /* --- dappled light, cast through everything --- */
     c.save();
     c.globalCompositeOperation = "lighter";
-    for (var dp = 0; dp < 40; dp++) {
+    for (var dp = 0; dp < 22; dp++) {
       var dx = rand() * W, dy = rand() * H * 0.95;
-      var dr = W * (0.004 + rand() * 0.016);
+      var dr = W * (0.003 + rand() * 0.009);
       var g = c.createRadialGradient(dx, dy, 0, dx, dy, dr);
       g.addColorStop(0, P.dapple[0]);
       g.addColorStop(1, P.dapple[1]);

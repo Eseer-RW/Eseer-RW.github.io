@@ -68,10 +68,17 @@ publicly visible, so this is the thing to finish first.
 
 ## the palettes
 
-**Daylight** — all colour lives in `:root` at the top of `styles.css`, with a matching
-`[data-theme="night"]` block for the evening version. Change `--sage`, `--blush`, and
-`--paper` and the whole site follows — buttons, hills, moon, and drifting leaves
-included.
+**Daylight** — early morning: a low sun behind the trees, mist holding the light,
+foliage yellow-green where it is lit and cool where it is not. Page colour lives in
+`:root` at the top of `styles.css`, with a matching `[data-theme="night"]` block for
+the evening version.
+
+The hero scene is painted on `<canvas>`, which cannot read CSS variables, so its
+palette lives in `assets/js/valley.js` as the `DAY` and `NIGHT` objects — sky, sun
+bloom, light rays, the three treeline bands, mist, water, reflections, bank and
+reeds. Edit those to retime the scene; the card illustrations and gallery
+placeholders are tuned to match and live in `styles.css` (`--art-*`) and
+`assets/img/`.
 
 The daylight site opens in whichever theme matches the visitor's OS setting, and the
 lantern button in the nav overrides it (remembered in `localStorage`).
