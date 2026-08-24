@@ -581,3 +581,10 @@ strong { font-weight: 600; color: #fff; }
   .mailbox__row { flex-direction: column; }
   .mailbox__row .btn { justify-content: center; }
 }
+
+.quote__by {
+  margin-top: .5rem;
+  font-family: var(--mono); font-size: .72rem; font-style: normal;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--lum-faint);
+}
+.quote__by cite { font-style: normal; }

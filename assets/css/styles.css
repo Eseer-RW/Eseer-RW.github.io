@@ -674,3 +674,10 @@ strong { font-weight: 600; color: var(--ink); }
   .mailbox__row { flex-direction: column; }
   .mailbox__row .btn { justify-content: center; }
 }
+
+.quote__by {
+  margin-top: .5rem;
+  font-family: var(--sans); font-size: .85rem; font-style: normal;
+  letter-spacing: .04em; color: var(--ink-faint);
+}
+.quote__by cite { font-style: italic; }
