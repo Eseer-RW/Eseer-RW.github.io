@@ -14,28 +14,28 @@
   /* the scene has to follow the day/evening toggle, the way the old SVG did
      through CSS variables. canvas cannot read those, so the palette lives here. */
   var DAY = {
-    /* early morning: a low sun behind the trees, mist holding the light,
-       foliage yellow-green where it is lit and cool where it is not */
-    sky:   ["#a9d0d2", "#d3e8c6", "#f5efc4", "#fffce6"],
-    bloom: ["rgba(255,253,240,1)", "rgba(255,240,178,.7)", "rgba(255,216,130,.3)", "rgba(255,216,130,0)"],
-    ray:   ["rgba(255,240,180,.42)", "rgba(255,240,180,.13)", "rgba(255,240,180,0)"],
+    /* a high-key morning: everything sits in the upper half of the value
+       range, and the branch is a mid-green rather than a silhouette */
+    sky:   ["#cfe9e6", "#e6f3d8", "#f9f5da", "#fffef4"],
+    bloom: ["rgba(255,255,250,1)", "rgba(255,248,208,.75)", "rgba(255,236,170,.32)", "rgba(255,236,170,0)"],
+    ray:   ["rgba(255,250,215,.40)", "rgba(255,250,215,.12)", "rgba(255,250,215,0)"],
     bands: [
-      { y: .13, h: .10, fill: "#d7e8bd", lit: "#f2facf", shade: "#c0d7a6", size: .008, step: .075, r: .042 },
-      { y: .06, h: .17, fill: "#9ec777", lit: "#ddf0ab", shade: "#82ad5e", size: .012, step: .115, r: .062 },
-      { y: .00, h: .26, fill: "#659a49", lit: "#aada6d", shade: "#4c7a3b", size: .016, step: .16,  r: .085 }
+      { y: .13, h: .10, fill: "#e2f0cd", lit: "#f8fde6", shade: "#d1e5b9", size: .008, step: .075, r: .042 },
+      { y: .06, h: .17, fill: "#c1dc9f", lit: "#ecf9cb", shade: "#accb8b", size: .012, step: .115, r: .062 },
+      { y: .00, h: .26, fill: "#9cc476", lit: "#cfeaa2", shade: "#86af61", size: .016, step: .16,  r: .085 }
     ],
-    haze:  ["rgba(255,244,198,0)", "rgba(255,244,198,.15)"],
-    water: ["#e2eaae", "#bcd6a0", "#93b993", "#77a081"],
-    mirror:["rgba(102,140,92,.24)", "rgba(108,146,96,.09)", "rgba(108,146,96,0)"],
-    path:  ["rgba(255,243,190,.85)", "rgba(255,243,190,.26)", "rgba(255,243,190,0)"],
-    refl:  ["rgba(102,140,92,", "rgba(216,236,190,"],
-    ripple:"rgba(255,248,210,",
-    pad:   ["rgba(96,138,90,", "rgba(206,232,180,.32)"],
-    lotus: ["rgba(252,214,220,.96)", "rgba(244,178,196,.96)", "rgba(255,241,192,.96)"],
-    bank:  "#86ac57", bankLit: "#c6dd82", bankEdge: "#5e8040", reed: "#5f8340",
-    deep:  "#40693a", deepLit: "#84b356",
-    dapple:["rgba(255,244,186,.46)", "rgba(255,244,186,0)"],
-    mote:  "rgba(255,246,200,"
+    haze:  ["rgba(255,252,230,0)", "rgba(255,252,230,.16)"],
+    water: ["#eaf2ca", "#d5e7b8", "#bad8b1", "#a6cba8"],
+    mirror:["rgba(150,180,130,.2)", "rgba(155,185,135,.08)", "rgba(155,185,135,0)"],
+    path:  ["rgba(255,250,205,.85)", "rgba(255,250,205,.26)", "rgba(255,250,205,0)"],
+    refl:  ["rgba(150,180,130,", "rgba(238,249,220,"],
+    ripple:"rgba(255,255,242,",
+    pad:   ["rgba(146,180,128,", "rgba(230,244,206,.35)"],
+    lotus: ["rgba(253,222,228,.96)", "rgba(247,190,206,.96)", "rgba(255,246,206,.96)"],
+    bank:  "#b2d182", bankLit: "#dcefa8", bankEdge: "#96b96a", reed: "#93b768",
+    deep:  "#6f9c56", deepLit: "#a9d179",
+    dapple:["rgba(255,252,220,.45)", "rgba(255,252,220,0)"],
+    mote:  "rgba(255,253,235,"
   };
 
   var NIGHT = {
