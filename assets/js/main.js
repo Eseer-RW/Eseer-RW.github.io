@@ -26,8 +26,10 @@
 
   var stored = null;
   try { stored = localStorage.getItem("theme"); } catch (e) { /* private mode */ }
-  var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(stored || (prefersDark ? "night" : "day"));
+  /* the daylight forest IS the design, so an OS dark-mode preference does not
+     flip the page into a different artwork. the lantern toggle does, and that
+     choice is remembered. */
+  applyTheme(stored || "day");
 
   toggle.addEventListener("click", function () {
     var next = root.getAttribute("data-theme") === "night" ? "day" : "night";

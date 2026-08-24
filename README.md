@@ -80,8 +80,10 @@ reeds. Edit those to retime the scene; the card illustrations and gallery
 placeholders are tuned to match and live in `styles.css` (`--art-*`) and
 `assets/img/`.
 
-The daylight site opens in whichever theme matches the visitor's OS setting, and the
-lantern button in the nav overrides it (remembered in `localStorage`).
+The site always opens in daylight, whatever the visitor's OS dark-mode setting is —
+the light forest is the design, and a system preference should not swap it for a
+different artwork. The lantern button in the nav switches to the evening version, and
+that choice is remembered in `localStorage`.
 
 **Canopy** — `futuristic.css` commits to a single nocturnal palette, so there's no
 toggle. Its tokens are `--void` (ground), `--bio` (the bioluminescent accent),

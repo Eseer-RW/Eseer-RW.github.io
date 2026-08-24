@@ -77,23 +77,6 @@
   --grain-opacity: .18;
 }
 
-/* honour the OS preference on first visit; the toggle overrides it */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="day"]) {
-    --paper: #1e2620;  --paper-2: #232c25;  --paper-3: #2a342b;  --card: #26302a;
-    --ink: #e7ecdd;    --ink-soft: #b3bfa6; --ink-faint: #8b9880;
-    --sage: #a1c088;   --sage-deep: #cbe0b4; --sage-pale: #35442f;
-    --blush: #4b3a38;  --blush-deep: #dfa9a3; --gold: #e6c583;
-    --line: rgba(190, 214, 170, .16); --line-strong: rgba(190, 214, 170, .30);
-    --shadow: 0 18px 40px -28px rgba(0,0,0,.8);
-    --shadow-lift: 0 26px 55px -30px rgba(0,0,0,.9);
-    --sky-1: #24312d; --sky-2: #2a3a31; --sky-3: #314233; --sun: #d9c07f;
-    --hill-far: #3d5242; --hill-mid: #33473a; --hill-tree: #22332a;
-    --grass: #2c3f30; --water: #35504c;
-    --grain-opacity: .18;
-  }
-}
-
 /* ---------------------------------------------------------------- base --- */
 
 *, *::before, *::after { box-sizing: border-box; }
