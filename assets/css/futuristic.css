@@ -451,9 +451,10 @@ strong { font-weight: 600; color: #fff; }
 
 .footer { padding: 3rem 0 3.5rem; text-align: center; border-top: 1px solid var(--line); }
 .footer__ribbon {
-  display: inline-flex; align-items: center; justify-content: center; gap: .8rem;
-  padding: .7rem 1.6rem; margin-bottom: 1rem; border-radius: 999px;
-  border: 1px solid var(--line); background: rgba(108,242,192,.05);
+  display: flex; align-items: center; justify-content: center; gap: .8rem;
+  width: 100%; padding: 1rem 1.6rem; margin-bottom: 1.25rem;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: rgba(108,242,192,.05);
   font-family: var(--display); font-weight: 600; font-size: .95rem; color: var(--bio);
 }
 .footer__ribbon .ico { width: 1.05em; height: 1.05em; }
@@ -499,4 +500,44 @@ strong { font-weight: 600; color: #fff; }
   .nav, .drift, #canopy, .scroll-cue, .lightbox, .footer__ribbon { display: none !important; }
   body { background: #fff; color: #000; }
   .section { padding: 1rem 0; }
+}
+
+
+/* ------------------------------------------------- copy still to write --- */
+
+.todo {
+  margin: 0 0 1.05em; padding: .85rem 1.05rem;
+  border: 1px dashed var(--line-warm); border-radius: var(--rad);
+  background: rgba(247, 199, 119, .05);
+  color: var(--lum-dim); font-size: .95rem; font-style: italic;
+}
+.todo::before {
+  content: "your words"; display: block; margin-bottom: .3rem;
+  font-family: var(--mono); font-style: normal; font-size: .66rem;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--lantern);
+}
+.todo--cap {
+  margin: .7rem 0 0; padding: .45rem .7rem; text-align: center; font-size: .8rem;
+}
+.todo--cap::before { font-size: .58rem; margin-bottom: .15rem; }
+.section__head .todo { max-width: 58ch; }
+.note .todo { text-align: center; margin-inline: auto; max-width: 46ch; }
+.quote .todo {
+  margin: 0; border: none; background: none; padding: 0;
+  font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: #fff;
+}
+
+/* ------------------------------------------------------ project numbers --- */
+
+.stats {
+  list-style: none; padding: 0; margin: 0 0 1rem;
+  display: flex; flex-wrap: wrap; gap: .3rem .9rem;
+  font-family: var(--mono); font-size: .78rem; color: var(--bio);
+  font-variant-numeric: tabular-nums;
+}
+.stats li { position: relative; padding-left: .9rem; }
+.stats li::before {
+  content: ""; position: absolute; left: 0; top: .58em;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--bio); box-shadow: 0 0 6px var(--bio);
 }

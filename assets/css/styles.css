@@ -551,9 +551,9 @@ strong { font-weight: 600; color: var(--ink); }
 
 .footer { padding: 2.5rem 0 3.5rem; text-align: center; }
 .footer__ribbon {
-  width: min(var(--wrap), 100% - 3rem); margin: 0 auto 1rem;
+  width: 100%; margin: 0 0 1.25rem;
   display: flex; align-items: center; justify-content: center; gap: .8rem;
-  padding: .9rem 1.5rem; border-radius: 999px;
+  padding: 1rem 1.5rem;
   background: var(--sage-pale); color: var(--sage-deep);
   font-size: 1.15rem;
 }
@@ -593,4 +593,60 @@ strong { font-weight: 600; color: var(--ink); }
   .nav, .drift, .grain, .scroll-cue, .lightbox, .footer__ribbon { display: none !important; }
   body { background: #fff; color: #000; }
   .section { padding: 1rem 0; }
+}
+
+
+/* ------------------------------------------------- copy still to write --- */
+/* every one of these is a placeholder: search the html for class="todo" */
+
+.todo {
+  margin: 0 0 1.05em;
+  padding: .85rem 1.05rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--rad);
+  background: color-mix(in srgb, var(--blush) 22%, transparent);
+  color: var(--ink-soft);
+  font-size: .95rem;
+  font-style: italic;
+}
+.todo::before {
+  content: "your words";
+  display: block;
+  margin-bottom: .3rem;
+  font-style: normal;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--blush-deep);
+}
+
+/* the compact variant, for captions under a photo */
+.todo--cap {
+  margin: .7rem 0 0;
+  padding: .45rem .7rem;
+  text-align: center;
+  font-size: .82rem;
+}
+.todo--cap::before { font-size: .6rem; margin-bottom: .15rem; }
+
+.section__head .todo { max-width: 58ch; }
+.note .todo { text-align: center; margin-inline: auto; max-width: 46ch; }
+.quote .todo {
+  margin: 0; border: none; background: none; padding: 0;
+  font-family: var(--serif); font-size: 1.2rem; color: var(--ink);
+}
+
+/* ------------------------------------------------------ project numbers --- */
+/* the facts from the resume, kept separate from the prose */
+
+.stats {
+  list-style: none; padding: 0; margin: 0 0 1rem;
+  display: flex; flex-wrap: wrap; gap: .3rem .9rem;
+  font-size: .88rem; color: var(--sage-deep);
+  font-variant-numeric: tabular-nums;
+}
+.stats li { position: relative; padding-left: .95rem; }
+.stats li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
 }

@@ -33,18 +33,38 @@ of the three illustrations sits at the top — they're just different times of d
 
 To add a role or degree, copy an `<li>` in the `.timeline` list. Newest first.
 
-## still to do
+## still to do — the writing is yours
+
+Every bit of prose I did not take straight off the resume is left as a visible
+placeholder. Search either HTML file for `class="todo"` — there are 15 in each:
+
+| where | what it wants |
+| --- | --- |
+| `#about` | two or three paragraphs in your own voice |
+| `#about` blockquote | a line you like |
+| portrait caption | one short caption |
+| each project card | a sentence or two of prose (the numbers are already in from the resume) |
+| `#projects`, `#gallery` headers | one line introducing each section |
+| `#contact` | a sentence inviting people to write |
+| gallery captions ×6 | one caption per photo |
+
+Replace the whole `<p class="todo">…</p>` element with a normal `<p>`. Until you
+do, they render as dashed "your words" boxes — deliberately hard to miss, and
+publicly visible, so this is the thing to finish first.
+
+## still to do — pictures
 
 - **Photos.** The six tiles in `#gallery` are placeholder SVGs — `gallery-*.svg` on the
   daylight version, `neon-*.svg` on the canopy one. Drop real JPGs into `assets/img/`,
-  point each `src` at them, and rewrite the captions. Square-ish and ~1200px wide is
-  plenty — the grid crops to 1:1. Both pages need updating.
+  point each `src` at them. Square-ish and ~1200px wide is plenty — the grid crops to
+  1:1. Both pages need updating.
 - **Portrait.** `portrait.svg` and `portrait-neon.svg`, same idea.
 - **Content lives in two files.** Edits to the bio, projects, or timeline need making in
   both `index.html` and `futuristic.html` until you settle on one.
-- **Resume PDF.** The resume button currently scrolls to *the path so far*, which carries
-  the same information. To offer a download instead, put the file at `assets/resume.pdf`
-  and change that button's `href` back to `assets/resume.pdf" download`.
+- **Resume PDF.** The resume button scrolls to *the path so far*, which carries the same
+  information. To offer a download instead, put a file at `assets/resume.pdf` and point
+  that button at it — but note the PDF you have contains your phone number and home
+  address, and publishing it puts both on the open web.
 
 ## the palettes
 
