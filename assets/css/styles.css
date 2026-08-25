@@ -522,6 +522,18 @@ strong { font-weight: 600; color: var(--ink); }
 .shot img { border-radius: 10px; aspect-ratio: 1; object-fit: cover; width: 100%; }
 .gallery figcaption { padding: .7rem 0 0; text-align: center; font-size: .88rem; color: var(--ink-faint); }
 
+/* a finished caption: the placeholder's soft green card, minus the dashed
+   border and the "your words" label */
+.gallery figcaption.caption {
+  margin: .7rem 0 0;
+  padding: .45rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--rad);
+  background: color-mix(in srgb, var(--sage-pale) 45%, transparent);
+  color: var(--ink-soft);
+  font-size: .82rem;
+}
+
 /* ------------------------------------------------------------- contact --- */
 
 .note {

@@ -444,6 +444,15 @@ strong { font-weight: 600; color: #fff; }
   color: var(--lum-faint); text-transform: uppercase;
 }
 
+.gallery figcaption.caption {
+  margin: .7rem 0 0;
+  padding: .45rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--rad);
+  background: rgba(108, 242, 192, .05);
+  color: var(--lum-dim);
+}
+
 /* ------------------------------------------------------------- contact --- */
 
 .note {
