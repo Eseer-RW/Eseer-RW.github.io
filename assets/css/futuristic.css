@@ -283,8 +283,8 @@ strong { font-weight: 600; color: #fff; }
 
 .quote {
   margin: 2rem 0 0; padding: 1.1rem 1.4rem;
-  border-left: 2px solid var(--blossom);
-  background: linear-gradient(90deg, rgba(255,157,190,.09), transparent);
+  border-left: 2px solid var(--bio);
+  background: rgba(108, 242, 192, .07);
   border-radius: 0 var(--rad) var(--rad) 0;
 }
 .quote p { margin: 0; font-family: var(--display); font-size: 1.18rem; font-weight: 600;

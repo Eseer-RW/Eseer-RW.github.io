@@ -365,8 +365,8 @@ strong { font-weight: 600; color: var(--ink); }
 
 .quote {
   margin: 2rem 0 0; padding: 1.1rem 1.4rem;
-  border-left: 3px solid var(--blush-deep);
-  background: color-mix(in srgb, var(--blush) 45%, transparent);
+  border-left: 3px solid var(--sage);
+  background: var(--sage-pale);
   border-radius: 0 var(--rad) var(--rad) 0;
 }
 .quote p { margin: 0; font-size: 1.25rem; color: var(--ink); }
