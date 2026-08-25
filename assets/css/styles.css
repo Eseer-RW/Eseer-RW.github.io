@@ -592,7 +592,7 @@ strong { font-weight: 600; color: var(--ink); }
   padding: .85rem 1.05rem;
   border: 1px dashed var(--line-strong);
   border-radius: var(--rad);
-  background: color-mix(in srgb, var(--blush) 22%, transparent);
+  background: color-mix(in srgb, var(--sage-pale) 45%, transparent);
   color: var(--ink-soft);
   font-size: .95rem;
   font-style: italic;
@@ -605,7 +605,7 @@ strong { font-weight: 600; color: var(--ink); }
   font-size: .68rem;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--blush-deep);
+  color: var(--sage-deep);
 }
 
 /* the compact variant, for captions under a photo */
