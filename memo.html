@@ -1,400 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="day">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Reese Wang — canopy</title>
-<meta name="description" content="Reese Wang — Harvard, class of 2029. Mathematics, statistics and psychology. Citation integrity, LLM evaluation, and quantitative markets." />
+<title>AI implications in insurance, trading, and crypto markets — Reese Wang</title>
+<meta name="description" content="A research memorandum by Reese Wang on the policy landscape around AI, with a focus on systemic risk in insurance, trading, and crypto markets." />
 <meta name="author" content="Reese Wang" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI implications in insurance, trading, and crypto markets" />
+<meta property="og:description" content="A research memorandum on systemic risk from AI adoption across insurance, securities, and crypto markets." />
+<meta name="theme-color" content="#fbf7ee" />
 
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Reese Wang" />
-<meta property="og:description" content="Mathematics, statistics and psychology at Harvard." />
-<meta property="og:image" content="assets/img/neon-1.svg" />
-<meta name="theme-color" content="#04100e" />
-
-<link rel="icon" href="assets/img/favicon-neon.svg" type="image/svg+xml" />
-
-<!-- webfonts are progressive enhancement: the local fallback stack in styles.css
-     keeps the page looking right if these never arrive. -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" media="print" onload="this.media='all'"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=Commissioner:wght@300;400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" />
 <noscript>
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=Commissioner:wght@300;400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Nunito+Sans:wght@300;400;600&amp;display=swap" />
 </noscript>
 
-<link rel="stylesheet" href="assets/css/futuristic.css" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/memo.css" />
 </head>
 
 <body>
-<a class="skip-link" href="#main">skip to content</a>
+<a class="skip-link" href="#memo">skip to the memo</a>
+<div class="grain" aria-hidden="true"></div>
 
-<!-- ============================ nav ============================ -->
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a class="mark" href="#top">
-      <svg class="mark__leaf" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig" /></svg>
-      <span>r.w.</span>
+<article class="memo" id="memo">
+  <a class="memo__back" href="index.html">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg>
+    reese wang
+  </a>
+
+  <p class="memo__eyebrow">Research memorandum</p>
+  <h1 class="memo__title">AI implications in insurance, trading, and crypto markets</h1>
+
+  <div class="memo__meta">
+    <span><strong>Reese Wang</strong></span>
+    <span>Draft &mdash; July 16, 2026</span>
+    <span>59 sources</span>
+  </div>
+
+  <div class="memo__actions">
+    <a class="btn btn--primary" href="assets/memo.pdf" download>
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg> download as pdf
     </a>
-
-    <nav class="nav__links" aria-label="Sections">
-      <a href="#about">about</a>
-      <a href="#projects">work</a>
-      <a href="#journey">journey</a>
-      <a href="#toolbox">toolbox</a>
-      <a href="#gallery">pictures</a>
-      <a href="#contact">contact</a>
-    </nav>
-
-    <div class="nav__actions">
-      <button id="menu-toggle" class="burger" type="button"
-              aria-expanded="false" aria-controls="nav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <div class="nav__vine" aria-hidden="true"><i id="vine-progress"></i></div>
-</header>
-
-<main id="main">
-
-<!-- ============================ hero ============================ -->
-<section class="hero" id="top">
-  <canvas id="canopy" aria-hidden="true"></canvas>
-
-  <div class="hero__card reveal">
-    <p class="eyebrow"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> signal received</p>
-
-    <h1 class="display">reese wang</h1>
-    <p class="lede">
-      sophomore at harvard studying mathematics, statistics and psychology.
-    </p>
-
-    <div class="hero__links">
-      <a class="btn btn--primary" href="#journey"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg> resume</a>
-      <a class="btn" href="https://www.linkedin.com/in/reese-wang-harvard-freshman/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg> linkedin</a>
-      <a class="btn" href="https://github.com/Eseer-RW" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg> github</a>
-      <a class="btn" href="https://substack.com/@univerese553" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
-      <button class="btn" type="button" data-mail="reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> email</button>
-    </div>
-
-    <p class="hero__note">cambridge, massachusetts</p>
+    <a class="btn" href="index.html#projects">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> back to the work
+    </a>
   </div>
 
-  <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span></a>
-</section>
-
-<!-- ============================ about ============================ -->
-<section class="section" id="about">
-  <div class="wrap grid grid--about">
-
-    <aside class="portrait reveal">
-      <div class="portrait__frame">
-        <!-- TO ADD THE REAL PHOTO: drop the file in as assets/img/reese.jpg and
-             change the two attributes below to
-                 src="assets/img/reese.jpg"  width="<real px>" height="<real px>"
-             futuristic.html needs the same edit. -->
-        <img src="assets/img/portrait-neon.svg" alt="Portrait of Reese Wang" width="640" height="800" />
-      </div>
-      <p class="portrait__caption">Reese Wang</p>
-    </aside>
-
-    <div class="reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fern"/></svg> a little about me</h2>
-
-      <p class="todo">Two or three short paragraphs in your own voice. What are you drawn to, what are you working on, and what do you do when you are not at a screen?</p>
-
-      <ul class="chips">
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg> math</li>
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg> statistics</li>
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fern"/></svg> coding</li>
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> foil fencing</li>
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-camera"/></svg> violin</li>
-        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg> blog writing</li>
-      </ul>
-
-      <blockquote class="quote">
-        <p><em>&ldquo;The future is a book yet unwritten. Let no one hold the pen but you.&rdquo;</em></p>
-        <footer class="quote__by">Giles Grimm, <cite>Ever After High</cite></footer>
-      </blockquote>
-    </div>
-
+  <div class="memo__summary">
+    <h2>executive summary</h2>
+    <p>This memo provides an analysis and summary of the policy landscape around AI with a
+      particular focus on implications for financial markets. It begins with a survey of policy
+      viewpoints across the landscape and zeroes in on several financial services&ndash;related
+      areas of concern.</p>
+    <p>The rise of artificial intelligence offers enormous potential for economic and scientific
+      advancement. Its development also presents a wide range of risks. Underappreciated are the
+      risks relating to financial markets.</p>
+    <p>The rapid advancement of AI and the rise of highly levered computing infrastructure and data
+      access appears likely to reinforce existing concerns about competition among technology
+      firms. Autonomous AI-driven algorithmic models also appear likely to introduce potentially
+      severe systemic vulnerabilities, including fast-moving herd behavior in financial markets and
+      proxy discrimination in insurance underwriting. Given significant uncertainties around the
+      development and expansion of AI across the economy &mdash; including its ability to generate
+      revenue for AI hyperscalers &mdash; it is also likely to create heightened financial market
+      risks around valuation, which may be exacerbated by concentration in the markets and ongoing
+      deregulatory trends emanating from the U.S. Congress, the SEC, the CFTC, and the PCAOB.</p>
+    <p>What to do about AI oversight has sparked a wide-ranging debate in policymaking circles,
+      including between those who want more or less regulation and whether regulation should be
+      located at the federal or state level. Advocates of technology acceleration urge the continued
+      adoption of pro-innovation policy frameworks, and warn that over-regulation could stifle our
+      country&rsquo;s technical vigor and undermine its global competitiveness in this critical
+      area. However, others point out that past experience from technological change, as well as
+      other fast-moving legal, regulatory, and economic change, highlights the need for common-sense
+      regulatory frameworks for transparency, accountability, and crisis prevention. Quite simply,
+      self-regulation will not deliver; fragmented state laws will likely be insufficient; and
+      traditional enforcement is inherently reactive.</p>
+    <p><strong>A unified, proactive federal regulatory framework is essential</strong> to protect
+      consumers, suppliers, and workers from unfair data extraction, secure transparency in
+      corporate disclosures, and implement ex-ante safeguards against algorithm-driven financial
+      crises.</p>
   </div>
-</section>
 
-<!-- ============================ work ============================ -->
-<section class="section section--tint" id="projects">
-  <div class="wrap">
-    <header class="section__head reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> things i&rsquo;ve built</h2>
-      <p class="todo">One line introducing this section.</p>
-    </header>
+  <h2>1. Common ground and conflict between Republican and Democratic policymakers</h2>
 
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card__art card__art--1" aria-hidden="true">
-          <svg viewBox="0 0 400 220"><use href="#art-1"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>citation-fabrication detector</h3>
-          <ul class="stats"><li>95% recall</li><li>94% specificity</li><li>486M works indexed</li><li>~30× faster per paper</li></ul>
-          <p>detects hallucinated citations with 95% recall, and runs at million-paper scale.</p>
-          <ul class="tags"><li>python</li><li>vector search</li><li>llm evaluation</li></ul>
-          <p class="card__links">
-            <a href="https://github.com/Eseer-RW/fake-citation-detector" target="_blank" rel="noopener">source →</a>
-          </p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="card__art card__art--2" aria-hidden="true">
-          <svg viewBox="0 0 400 220"><use href="#art-2"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>the arXiv fabrication study</h3>
-          <ul class="stats"><li>80M+ citations</li><li>2M papers</li><li>0.1% verified fabrication rate</li><li>~4× rise, 2023–2025</li></ul>
-          <p>ran the citation-fabrication detector across 2M papers and 80M+ citations, identified a statistically significant LLM-era increase, and concluded a 0.1% fabrication rate in the post-LLM years.</p>
-          <ul class="tags"><li>arxiv</li><li>openalex</li><li>statistics</li></ul>
-          <p class="card__links">
-            <a href="https://github.com/Eseer-RW/openalex_scan" target="_blank" rel="noopener">source →</a>
-          </p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="card__art card__art--3" aria-hidden="true">
-          <svg viewBox="0 0 400 220"><use href="#art-3"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>scholarly data-quality pipeline</h3>
-          <ul class="stats"><li>41,000+ corrupted records found</li><li>~74,000 references recovered</li></ul>
-          <p>identified 41,000+ corrupted records in OpenAlex and Crossref &mdash; duplicate DOIs, repository junk, incorrect titles &mdash; then built and deployed a data-quality pipeline that recovered 74,000 references.</p>
-          <ul class="tags"><li>crossref</li><li>openalex</li><li>data pipelines</li></ul>
-          <p class="card__links">
-            <a href="https://github.com/Eseer-RW/openalex_scan" target="_blank" rel="noopener">source →</a>
-          </p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="card__art card__art--4" aria-hidden="true">
-          <svg viewBox="0 0 400 220"><use href="#art-4"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>chichewa translation benchmark</h3>
-          <ul class="stats"><li>7 systems compared</li><li>778K+ sentence pairs</li><li>BLEU · chrF++ · BERTScore · COMET</li></ul>
-          <p>a python LLM benchmarking tool enabling accurate Chichewa&ndash;English translation of crisis reports for underserved Kenyan communities.</p>
-          <ul class="tags"><li>python</li><li>llm evaluation</li><li>ushahidi</li></ul>
-          <p class="card__links">
-            <a href="https://github.com/Eseer-RW/chichewa-translate-eval" target="_blank" rel="noopener">source →</a>
-          </p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="card__art card__art--2" aria-hidden="true">
-          <svg viewBox="0 0 400 220"><use href="#art-2"/></svg>
-        </div>
-        <div class="card__body">
-          <h3>ai implications memo</h3>
-          <ul class="stats"><li>59 sources</li><li>3 markets</li><li>insurance · trading · crypto</li></ul>
-          <p>a research memorandum on systemic risk from ai adoption &mdash; where automation
-             outruns the safety nets, and who pays when it does.</p>
-          <ul class="tags"><li>policy</li><li>financial markets</li><li>writing</li></ul>
-          <p class="card__links">
-            <a href="memo.html">read the memo &rarr;</a>
-            <a href="assets/memo.pdf" download>pdf &darr;</a>
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+  <h3>Common ground</h3>
+  <p>Despite fundamentally different motivations &mdash; with Republicans prioritizing geopolitical
+    dominance and Democrats focusing on consumer and worker protections &mdash; policymakers in both
+    parties share critical common ground on the future of AI governance:</p>
+  <ul>
+    <li><strong>Federal frameworks for frontier models.</strong> Policymakers from both parties have
+      converged on the narrower proposition that the most advanced AI systems warrant some federal
+      standard. Three bipartisan vehicles advanced in 2026: the Great American AI Act (Obernolte
+      R-CA / Trahan D-MA, June 4), the FRONTIER Act (July, with three Republican and three
+      Democratic co-sponsors), and H.R. 8094, the AI Foundation Model Transparency Act (March 26).</li>
+    <li><strong>Mitigating catastrophic systemic risks.</strong> Bipartisan legislation in 2026
+      converged on treating the most capable AI models as a distinct category of systemic risk. The
+      Great American AI Act plans to extend the Cybersecurity Information Sharing Act through 2035
+      and direct DHS support to small and rural operators. The FRONTIER Act would establish tiered
+      transparency obligations such as model cards, independent audits, and incident reporting.
+      H.R. 8094 would require disclosure of training data, limitations, and evaluation methods.</li>
+    <li><strong>Innovation.</strong> Policymakers from both parties have advocated on a shared
+      rhetorical frame: federal AI rules should establish guardrails without impeding domestic
+      development. Rep. Lori Trahan (D-MA) described the framework as designed to meet AI&rsquo;s
+      challenges &ldquo;without smothering American innovation&rdquo;, and Rep. Jay Obernolte (R-CA)
+      framed the FRONTIER Act as ensuring regulation while the United States &ldquo;remains the
+      global leader in AI.&rdquo;</li>
+    <li><strong>Preserving American technical vigor.</strong> Sponsors from both parties present
+      their proposals as balancing guardrails with domestic innovation. Republicans generally
+      emphasize competitive positioning more directly, as many, including Rep. Erin Houchin (R-IN),
+      are concerned about &ldquo;falling behind China.&rdquo; Democratic approaches remain split
+      between incremental cooperation and broader regulation.</li>
+  </ul>
 
-<!-- ============================ journey / resume ============================ -->
-<section class="section" id="journey">
-  <div class="wrap">
-    <header class="section__head reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fern"/></svg> the path so far</h2>
-      <p class="sub">where i&rsquo;ve been studying and working.</p>
-    </header>
+  <p>The appeal to economic competitive advantage could be divided into two arguments: geopolitical,
+    that the U.S. must reach advanced AI before China for military and strategic reasons, and
+    commercial, that American firms must capture AI&rsquo;s economic value. However, being a
+    first-mover doesn&rsquo;t guarantee economic competitive advantage: although Britain led the
+    industrial revolution technically, the U.S. captured more of its gains. If AI&rsquo;s economic
+    returns come mainly from widespread adoption rather than having the most capable model, then
+    measuring national advantage by frontier model performance measures the wrong variable. Instead,
+    it&rsquo;s important to identify where in the industry profits actually accumulate: with
+    chipmakers, power providers, cloud services, model developers, or the companies building
+    applications? Furthermore, it is important to find what is holding AI development back and how
+    long it takes for free or low-cost models to match the leading ones, to determine whether early
+    leads erode quickly.</p>
 
-    <ol class="timeline">
-      <li class="reveal">
-        <span class="timeline__when">2025 — 2029</span>
-        <h3>b.a. mathematics, statistics &amp; psychology · <em>harvard university</em></h3>
-        <p>math 55a (group theory and linear algebra), math 55b (real and complex analysis), cs50, cs1240 (data structures and algorithms), and ensc s-138 (probability, statistics and their applications to engineering and data science). <em>cambridge, ma</em></p>
-      </li>
-      <li class="reveal">
-        <span class="timeline__when">may — august 2026</span>
-        <h3>swe intern · <em>insilicom</em></h3>
-        <p>built a citation-fabrication detector over 486m locally indexed scholarly works, reaching 95% recall and 94% specificity on the largest public benchmark of confirmed real-world fabrications, with ram-resident 168gb indexes and gil-aware process sharding cutting per-paper verification by ~30×. ran the largest per-citation fabrication study of arxiv to date — 80m+ citations across 2m papers — and produced the first verified fabrication rate for scientific preprints. <em>woburn, ma</em></p>
-      </li>
-      <li class="reveal">
-        <span class="timeline__when">may — august 2026</span>
-        <h3>fellow · <em>center market strategies llc</em></h3>
-        <p>authored a research memorandum on systemic risk from ai adoption across insurance, securities and crypto markets, synthesising 45+ sources across federal legislation, regulatory filings, litigation and central bank reports. <em>washington, dc</em></p>
-      </li>
-      <li class="reveal">
-        <span class="timeline__when">january — may 2026</span>
-        <h3>software engineer · <em>harvard computer society, tech for social good</em></h3>
-        <p>built a python llm benchmarking tool comparing 7 machine-translation systems (gpt-4.1, gemini 3, claude, nllb-200) on 778k+ chichewa–english sentence pairs for humanitarian-tech client ushahidi, scored with bleu, chrf++, bertscore and comet. <em>cambridge, ma</em></p>
-      </li>
-      <li class="reveal">
-        <span class="timeline__when">july 2025</span>
-        <h3>wise program participant · <em>jane street</em></h3>
-        <p>trained in market microstructure and live market-making through quantitative trading simulation workshops and coursework with firm traders. <em>new york, ny</em></p>
-      </li>
-      <li class="reveal">
-        <span class="timeline__when">class of 2025</span>
-        <h3>horace greeley high school · <em>chappaqua, ny</em></h3>
-        <p>gpa 4.0, act 36.</p>
-      </li>
+  <p>What sharpens these questions is the shift from generative to agentic AI in 2026. The Bank of
+    England reports that AI models can handle longer, more complex tasks faster than researchers
+    expected. METR found that the length of a task a model can complete has been doubling roughly
+    every four months, down from an earlier estimate of seven. Leading models can now finish
+    software engineering work that would take a human expert sixteen hours with about 50% success
+    rate. Furthermore, deployment is running ahead of oversight: more than half of finance firms now
+    run agentic systems, and Deputy Governor Sarah Breeden has said that existing frameworks
+    can&rsquo;t keep up with autonomous agents and that a human in the loop for every agent action is
+    unrealistic. As AI develops further and begins to enter the research industry, the urgency for
+    rapid development is exacerbated by the assumption that AI will be able to perform AI research.
+    Once AI enters this research loop, its development will accelerate exponentially and it will be
+    nearly impossible for other countries to catch up. However, agentic systems can also backfire:
+    because they act inside a firm&rsquo;s workflows, their value depends heavily on adoption,
+    integration, and trust, supporting the case that widespread adoption determines who captures the
+    gains rather than frontier capability.</p>
+
+  <h3>Conflict</h3>
+  <p>While policymakers in both parties recognize the need for a unified federal baseline, their core
+    ideological motivations, regulatory approaches, and social priorities remain deeply polarized:</p>
+  <ul>
+    <li><strong>Geopolitical acceleration vs. precautionary guardrails.</strong> Republican
+      policymakers, in general, treat AI primarily as a national security race against foreign
+      adversaries like China. They advocate for a fast-tracked, pro-innovation environment that
+      maximizes technical development. Conversely, Democratic policymakers adopt a precautionary
+      stance, prioritizing the structural mitigation of societal harms &mdash; such as automated
+      worker displacement, data privacy erosion, and corporate surveillance &mdash; even if it
+      necessitates slower, tighter regulatory oversight.</li>
+    <li><strong>Federal preemption vs. multi-tiered accountability.</strong> To prevent regulatory
+      friction, Republicans favor total federal preemption, which would establish a federal ceiling
+      to block and nullify state-level laws. Democrats, by contrast, support a multi-tiered
+      regulatory environment. They defend the right of state governments and local attorneys general
+      to enforce localized rules, arguing that local oversight provides crucial layers of consumer
+      protection that a single federal framework might overlook.</li>
+    <li><strong>Algorithmic neutrality vs. anti-discrimination mandates.</strong> A foundational
+      ideological divide exists regarding the content and training data of AI models. Republicans
+      strongly oppose federal anti-discrimination mandates, arguing that enforcing &ldquo;equity&rdquo;
+      rules artificially embeds partisan, progressive biases into algorithms. Democrats, conversely,
+      view anti-bias protections as essential, demanding strict federal oversight to expose and audit
+      AI models that inadvertently use proxy data to reinforce systemic discrimination against
+      marginalized communities.</li>
+  </ul>
+
+  <h2>2. The AI policy spectrum</h2>
+  <p>The discussion over AI regulation largely reflects the discussion over financial regulation, and
+    often involves the same organizations making the same arguments. In both debates, one side warns
+    that fast-moving, concentrated industries can cause widespread damage, while the other warns that
+    heavy regulation will slow innovation and push business elsewhere. Furthermore, the question of
+    whether federal rules should override state ones is present in both debates. Better Markets,
+    founded to press for tougher financial rules, has been publishing on AI since 2024 and frames the
+    issue around concentration, noting that the five largest investment banks filed 94% of AI-related
+    patents between 2017 and 2021. On the other hand, the Bank Policy Institute argues the industry
+    side, reporting that supervisors who do not appreciate AI risk profiles have made member
+    institutions risk-averse. Regulators have now officialized the connection: Treasury&rsquo;s
+    Financial Stability Oversight Council wrapped up a four-part series on AI in May 2026, and
+    Rep. Maxine Waters opened a formal inquiry into AI in financial services.</p>
+
+  <p>Concern about concentration among a handful of hyperscalers appears on both the left and the
+    populist right. Epoch AI estimates that Amazon, Google, Meta, Microsoft, and Oracle collectively
+    held about 71% of the world&rsquo;s cumulative AI compute as of Q4 2025, with leading labs
+    largely dependent on these firms for training and inference.</p>
+
+  <h3>Republican policymakers</h3>
+  <p>The predominant position of right-leaning policymakers and thinkers centers on securing American
+    global dominance over foreign adversaries like China in a technological arms race. They aim to
+    accelerate domestic AI innovation by establishing a uniform federal regulatory framework that
+    preempts and prohibits states from creating a fragmented patchwork of localized laws. Senator
+    Marsha Blackburn&rsquo;s (R-TN) TRUMP AMERICA AI Act reflects this approach in the most
+    comprehensive federal AI legislation proposed to date, preempting state law, establishing a new
+    liability framework, and rewriting copyright liability. In addition, party members emphasize the
+    importance of protecting children and privacy in the new age of AI: the Kids Online Safety Act
+    and NO FAKES Act, as well as third-party audits related to discrimination and bias, are also
+    incorporated into the draft.</p>
+
+  <h3>Democratic policymakers</h3>
+  <p>Their primary focus centers on mitigating the systemic risks, data exploitation, and social
+    inequities caused by rapid, unchecked AI development. Key concerns include data privacy
+    violations, child safety, worker displacement, and algorithmic bias. They advocate for rigorous
+    regulatory oversight at both the state and federal levels, emphasizing that democratic
+    accountability and consumer protections must be maintained rather than ceding governance
+    entirely to private corporations or self-regulating market forces. Sen. Elizabeth Warren (D-MA)
+    has expressed her concern over tech giants &ldquo;concentrating ownership over powerful
+    technologies and attempting to rewrite the rules that govern them,&rdquo; with taxpayers exposed
+    to a Big Tech-driven crash from debt-financed AI buildout. Democrats are also concerned about
+    hyperscaler concentration. In June 2026, Warren urged Congress to strengthen antitrust
+    enforcement on AI and revamp merger law to make more information public. Warren has also pressed
+    this concern to Treasury Secretary Bessent to urge investigation into opaque data center
+    financing.</p>
+
+  <h3>RAND Corporation <em>(non-partisan)</em></h3>
+  <p><strong>Perspective.</strong> Focuses heavily on strengthening AI safety institutes and
+    establishing robust international coordination mechanisms. Because AI evolves too quickly for
+    traditional congressional legislation to react during a crisis, they view static predictions as
+    unreliable. In <em class="case">Rethinking Social and Economic Policy in the Age of
+    General-Purpose Artificial Intelligence</em> (RR-A3888-2, 2025), Jonathan Welburn and colleagues
+    synthesize sectoral adoption trends and emphasize the uncertainty surrounding AI capability
+    advancement, warning that unpredictability can produce cascading failures, systemic risks, and
+    large-scale workforce impacts. They recommend adaptable scenario planning to implement
+    &ldquo;automatic stabilizers&rdquo; &mdash; pre-engineered safety nets and algorithmic protocols
+    designed to trigger automatically during unexpected AI-driven shocks rather than betting on a
+    single forecast.</p>
+  <p><strong>Alignment.</strong> Emphasizes structural safety nets and systematic government-backed
+    mitigation, though it maintains an objective, non-partisan stance on execution.</p>
+
+  <h3>Brookings Institution <em>(center / center-left)</em></h3>
+  <p><strong>Perspective.</strong> Argues that the United States is structurally unprepared for the
+    rapid labor disruption caused by AI, noting that the U.S. historically spends significantly less
+    on workforce training as a share of GDP than other advanced economies. This concept appears in
+    <em class="case">Building Pro-Worker AI</em> (Feb. 2026), which sorts technologies into five
+    categories and observes that only new task-creating technologies are unambiguously pro-worker
+    while automation is unambiguously not. It argues that current AI investment concentrates on
+    AGI-level capabilities with far less energy flowing toward pro-worker development, even though
+    pro-worker tools are arguably pro-firm as well, since they let workers produce more value. Molly
+    Kinder notes that the U.S. spends heavily on higher education but little on workforce training,
+    leaving few mechanisms to help workers navigate AI-driven change.</p>
+  <p><strong>Alignment.</strong> Strongly aligns with Democratic policymakers&rsquo; core focus on
+    worker protections, equity, and public-sector stewardship over labor markets.</p>
+
+  <h3>Insurance-law scholarship <em>(technocratic / academic)</em></h3>
+  <p><strong>Perspective.</strong> Focuses on standardizing operational liability, suggesting that
+    private insurance markets will effectively regulate AI risk long before formal government
+    frameworks can adapt. The foundational statement is Anat Lior&rsquo;s <em class="case">Insuring
+    AI: The Role of Insurance in Artificial Intelligence Regulation</em>, 35 Harv. J.L. &amp; Tech.
+    467 (2022). Because insurers face immediate financial exposure from AI errors, they are highly
+    incentivized to price risk accurately. The insurance sector possesses unique, practical
+    enforcement tools: it can mandate technical safety standards as a baseline condition for
+    coverage, reward safe corporate practices with lower premiums, conduct regular operational
+    audits, and deny claims for safety violations.</p>
+  <p><strong>Alignment.</strong> A technocratic framework occupying a neutral middle ground. It
+    appeals to Republicans by relying on private industry rather than expansion of a federal
+    bureaucracy, but it also satisfies Democrats by enforcing strict algorithmic accountability,
+    auditing, and corporate compliance standards.</p>
+
+  <h3>Cato Institute <em>(libertarian / free-market center-right)</em></h3>
+  <p><strong>Perspective.</strong> In <em class="case">What Might Good AI Policy Look Like?</em>,
+    Jennifer Huddleston primarily argues that America&rsquo;s global technological superiority was
+    achieved in the 1990s by intentionally leaving the early internet unburdened by heavy
+    regulations, and asserts that AI requires the same laissez-faire environment to thrive. In
+    <em class="case">Regulatory Preemption or Patchwork?</em>, Cato argues that state regulation
+    risks derailing this light-touch approach and that AI is by its nature almost always a matter of
+    interstate rather than intrastate commerce, making it inherently a federal issue. In its review
+    of the Obernolte&ndash;Trahan draft, <em class="case">AI Legislation, Export Restrictions, and
+    Free Speech Caught in Between</em>, Cato treats preemption as a speech benefit: a single set of
+    light-touch federal rules preventing a patchwork that would inhibit competition and reduce the
+    diversity of AI tools. They fault the bill for preempting too narrowly, since its three-year
+    window covers only AI development and not the many applications of AI. However, Cato&rsquo;s
+    federalism caveat is limited: in Huddleston&rsquo;s framework, states may retain traditional
+    roles, including decisions about their own governmental use of AI, but should not broadly
+    regulate or ban the technology.</p>
+  <p><strong>Alignment.</strong> A free-market, center-right position. It aligns with Republicans on
+    deregulation and treating AI outputs as protected speech, but breaks from the party&rsquo;s
+    mainstream position by defending federalism and opposing centralized federal preemption.</p>
+
+  <h3>Heritage Foundation <em>(conservative / right)</em></h3>
+  <p><strong>Perspective.</strong> Contrary to most right-wing views, the Heritage Foundation opposes
+    preemption. In <em class="case">Federal AI Power Grab Could End State Protections for Kids and
+    Workers</em>, Heritage argued that the proposed ten-year moratorium in Section 43201 of the House
+    reconciliation package would undermine state laws and override legitimate state efforts to curb
+    Big Tech&rsquo;s abuses with no federal safeguards to replace them. Heritage&rsquo;s main concerns
+    center on children and on Big Tech consolidation rather than on rapid technological development.
+    In <em class="case">Big Tech&rsquo;s AI Power Grab</em>, Heritage warns that closed-source AI
+    further concentrates Big Tech&rsquo;s power, allowing a few tech giants to control the most
+    advanced technologies through opaque, unaccountable systems. Heritage also opposed
+    California&rsquo;s SB 1047, arguing it would help powerful firms stifle competition.</p>
+  <p><strong>Alignment.</strong> A populist right position. It aligns with mainstream Republican
+    viewpoints on child safety and skepticism of California-style AI regulation, but diverges from
+    both the administration and libertarian viewpoints on preemption. Its critique of Big Tech
+    consolidation converges with progressive anti-monopoly analysis, but favors open-source
+    competition and state-level accountability over federal regulatory authority.</p>
+
+  <h2>3. Insurance and AI</h2>
+  <h3>Policy and regulatory landscape</h3>
+  <p>The insurance sector is experiencing a structural decoupling: private insurers are rapidly
+    withdrawing coverage for AI-related liabilities while simultaneously embedding AI algorithms into
+    their own operational underwriting and claims-denial workflows. In response, state regulators and
+    legal academic frameworks are stepping in. Rather than writing federal rules, as is common for
+    banking institutions and securities markets, insurance policy trends lean toward state-level
+    consumer protections and technocratic reliance on private compliance standards, while
+    progressives call for public backstops.</p>
+
+  <h3>Supporting evidence and operational cases</h3>
+  <ul>
+    <li><strong>The AI liability trap.</strong> Courts are imposing strict liability on corporations
+      for the automated outputs of their AI. In <em class="case">Moffatt v. Air Canada</em> (2024), a
+      Canadian tribunal ruled that corporations are fully liable for inaccurate information provided
+      by their web chatbots, meaning businesses face absolute liability just as traditional coverage
+      vanishes.</li>
+    <li><strong>The exclusion wave.</strong> In January 2026, insurance standard-setter Verisk
+      introduced general liability endorsements (forms CG 40 47 and CG 40 48) allowing insurers to
+      exclude claims &ldquo;arising out of&rdquo; generative AI. Following this, commercial carriers
+      like Berkley instituted absolute AI exclusions across D&amp;O and E&amp;O policies. Startups
+      like Armilla AI have emerged to fill this multi-billion-dollar gap with specialty AI-only
+      policies.</li>
+    <li><strong>Automated claims discrimination.</strong> Insurers are aggressively deploying AI to
+      automate claims denials. In <em class="case">Estate of Gene B. Lokken v. UnitedHealth
+      Group</em>, plaintiffs alleged that the insurer used its &ldquo;nH Predict&rdquo; algorithm
+      &mdash; which carried an alleged 90% error rate &mdash; to systematically deny post-acute care
+      to elderly patients without human clinical review.</li>
+  </ul>
+
+  <h3>Alignment with political and think-tank views</h3>
+  <p><strong>Democratic perspective.</strong> One of the left&rsquo;s main concerns is that AI
+    systems reproduce discrimination through proxy variables rather than explicit classification. New
+    York&rsquo;s Department of Financial Services Circular Letter 2024-7 requires insurers to prove
+    that AI systems don&rsquo;t proxy for protected classes and permits regulators to review vendor
+    tools directly. Brookings argues in Martin Eling&rsquo;s <em class="case">How Insurance Can
+    Mitigate AI Risks</em> (2019) that insurance is itself a governance mechanism and that automated
+    decisions can perpetuate discrimination against underserved groups.</p>
+  <p>Democratic policymakers are also concerned with claim denials. Automated tools have generated a
+    growing body of litigation, one of which is the UnitedHealth suit where the company allegedly
+    used an algorithm to cut off nursing-home care for Medicare Advantage patients against their
+    doctors&rsquo; judgment, with an error rate that plaintiffs put near 90%. Legislatures responded
+    with California SB 1120, effective January 2025, which prohibits coverage denials based solely on
+    automated tools without licensed human review.</p>
+  <p><strong>Republican perspective and academic frameworks.</strong> Mainstream Republican
+    frameworks generally avoid imposing anti-bias mandates, though the position is not absolute, as
+    Senator Blackburn&rsquo;s 2026 TRUMP AMERICA AI Act discussion draft includes third-party audits
+    related to discrimination and bias. A body of insurance-law scholarship argues that because
+    insurers bear immediate financial exposure when AI fails, they will price and manage that risk
+    faster than a federal agency could &mdash; by conditioning coverage on safety standards,
+    rewarding compliance through premiums, conducting audits, and denying claims for violations:
+    tools the government lacks. Another view is that catastrophic AI losses exceed private capacity
+    and require a public backstop modeled on the Price-Anderson Act or the Terrorism Risk Insurance
+    Act.</p>
+
+  <h2>4. Trading and AI</h2>
+  <h3>Policy and regulatory landscape</h3>
+  <p>Modern capital markets are highly automated, but the transition from static quantitative
+    algorithms to autonomous, deep reinforcement learning models has outpaced post-2010 market
+    guardrails. Financial regulators are highly alarmed by &ldquo;herding behavior&rdquo; &mdash;
+    where independent AI models train on identical data streams and execute correlated strategies in
+    unison. Policy discussions focus on whether existing market-wide circuit breakers can withstand
+    cross-venue AI shocks, and how to police corporate &ldquo;AI washing.&rdquo;</p>
+
+  <h3>Supporting evidence and operational cases</h3>
+  <ul>
+    <li><strong>The limits of circuit breakers.</strong> The Flash Crash of May 6, 2010 proved that
+      automated algorithmic feedback loops can erase $1 trillion in value in minutes without human
+      intervention. While the SEC&rsquo;s subsequent Limit Up-Limit Down circuit breakers
+      successfully halted panic during the March 2020 pandemic shocks, central banks warn that these
+      defenses are unsuited for autonomous AI agents.</li>
+    <li><strong>Systemic correlation.</strong> NVIDIA&rsquo;s sixth annual <em class="case">State of
+      AI in Financial Services</em> surveyed over 800 financial services professionals worldwide and
+      found that 65% of respondents&rsquo; firms actively use AI and 89% report that AI increased
+      revenue or reduced costs. However, the most common uses were fraud detection, risk management,
+      document processing, and customer service &mdash; not trading &mdash; and agent deployment
+      remains early at 21% deployed.</li>
+  </ul>
+  <p>On the other hand, Bank of England Deputy Governor Sarah Breeden reported at the ECB&rsquo;s
+    Sintra Forum (June 30, 2026) that more than half of finance firms now run agentic systems across
+    payments, trading, and operational functions. This figure is specific to the UK, drawn from
+    BoE/FCA supervision spanning banks, insurers, broker-dealers, and asset managers rather than
+    banks alone, and describes agentic systems generally rather than autonomous trading specifically.
+    Earlier BoE/FCA surveys found that only a small share of AI use cases involving automated
+    decision-making were actually fully autonomous.</p>
+  <p>The systemic risk Breeden identifies is herd behavior: agents &ldquo;could act in similar ways
+    if they are trained on similar data or designed around similar goals,&rdquo; which could cause
+    them to respond identically to the same market signals. Although most AI used by financial
+    services professionals are open-source models fine-tuned on proprietary data (84%, as reported by
+    NVIDIA), correlation could still arise from shared training corpora, shared objectives, and
+    shared market data &mdash; not necessarily from shared vendors.</p>
+  <p><strong>Autonomous algorithmic manipulation.</strong> Legal scholarship published in the
+    University of Chicago Law Review Online (Gabriel Rauterberg, <em class="case">How Artificial
+    Intelligence Will Shape Securities Regulation</em>) demonstrates via empirical experiments that
+    deep reinforcement learning models independently learn to execute unlawful trading strategies
+    entirely absent human instruction. Rauterberg&rsquo;s main concern is scienter: an autonomously
+    developing algorithm has no mental state attributable to any designer, so securities law cannot
+    hold it accountable for individual intent. He recommends a shift from individualized, punitive,
+    after-the-fact prosecution toward rules that govern how these systems are built and monitored in
+    the first place, and identifies the FAIRR Act as partly inspired by this research.</p>
+
+  <h3>Alignment with political and think-tank views</h3>
+  <p><strong>Democratic perspective / SEC framework.</strong> The SEC&rsquo;s response to AI-related
+    deception has been continuous across administrations, beginning under Chair Gary Gensler in March
+    2024 and continuing under Chair Paul Atkins. The Cyber and Emerging Technologies Unit was created
+    in February 2025 specifically to pursue AI and cyber misconduct. Gensler&rsquo;s enforcement push
+    against &ldquo;AI washing&rdquo; &mdash; where financial firms and operating companies overstate
+    their AI capabilities to mislead investors &mdash; had moved to parallel criminal prosecution by
+    April 2025 across six named cases (Delphia, Global Predictions, Rockwell Capital, Rimar Capital,
+    Presto Automation, and Nate Inc.) representing more than $44 million in alleged fraud.
+    Democrats&rsquo; proposals for AI in financial markets have remained largely aspirational: the one
+    concrete rulemaking, Gensler&rsquo;s Predictive Data Analytics rule, which would have required
+    firms to eliminate conflicts where AI tools favor firm interests over clients&rsquo;, was
+    withdrawn under Chair Atkins. What remains is a stalled bipartisan bill (the FAIRR Act), a
+    Democratic letter seeking an FSOC systemic-risk review, and Rep. Waters&rsquo; Request for
+    Information as the active agenda.</p>
+  <p><strong>RAND Corporation.</strong> RAND warns that AI-driven market shocks may happen faster than
+    Congress can respond, and that the uncertainty around future AI capability makes forecasting
+    unreliable. Instead, it advocates for &ldquo;automatic stabilizers&rdquo;: pre-programmed safety
+    nets wired into market infrastructure in advance.</p>
+  <p><strong>Republican perspective.</strong> Market-oriented Republicans generally oppose writing new
+    AI-specific rules, arguing that existing securities law already covers the problem. Chairman
+    Atkins has expressed his view that principles-based rules already require issuers to disclose
+    material impacts, and that prescriptive mandates aren&rsquo;t always the answer to emerging
+    technology. For financial firms specifically, the 2026 Examination Priorities cover
+    registrants&rsquo; use of automated investment tools and AI technology, doing much of what the
+    withdrawn Predictive Data Analytics rule would have imposed &mdash; through supervision rather
+    than rulemaking.</p>
+
+  <h2>5. Crypto and AI</h2>
+  <h3>Policy and regulatory landscape</h3>
+  <p>Crypto asset markets represent the highest-risk environment for AI-driven disruptions due to
+    structural fragmentation, continuous 24/7 trading, heavy leverage, and a lack of centralized
+    market-wide circuit breakers. While autonomous AI trading agents operate around the clock with
+    minimal human oversight, federal policy is heavily fragmented. Rather than curbing algorithmic
+    crypto trading, current regulatory actions are actively legitimizing onshore spot and derivative
+    crypto venues to pull activity away from unregulated offshore platforms.</p>
+
+  <h3>Supporting evidence and operational cases</h3>
+  <ul>
+    <li><strong>The October 2025 leverage crash.</strong> On October 10, 2025, a sudden macroeconomic
+      shock &mdash; a social-media announcement regarding 100% tariffs on China &mdash; hit a crypto
+      market carrying $217 billion in highly leveraged, bullish positions. Because crypto exchanges
+      lack uniform circuit breakers, automated liquidation engines force-sold assets into a vanishing
+      order book. This triggered a domino effect that erased $19 billion in positions within hours and
+      caused a $90 million pricing glitch on Binance that cascaded globally.</li>
+    <li><strong>Continuous autonomous herding.</strong> Unlike the equities market, which closes and
+      features structural pauses, autonomous AI crypto trading agents respond to real or fabricated
+      sentiment data around the clock. If multiple models herd into a single toxic trade or fall
+      victim to automated flash-loan manipulation, there are no structural safety nets to stop the
+      liquidation cascade until the capital is entirely depleted.</li>
+  </ul>
+
+  <h3>Alignment with political and think-tank views</h3>
+  <p><strong>Democratic perspective / consumer protection.</strong> Reflects the Democratic
+    platform&rsquo;s deep skepticism of the crypto ecosystem. Progressive policymakers argue that
+    layering autonomous AI over unregulated, leverage-heavy crypto infrastructure exacerbates
+    predatory market manipulation, retail investor wipes, and data privacy erosion. They demand that
+    crypto platforms be brought fully under traditional securities law.</p>
+  <p><strong>Republican perspective / Cato Institute.</strong> Aligns with the libertarian and
+    center-right desire to maximize financial innovation and secure technological dominance. Under
+    this framework, exemplified by the SEC&rsquo;s &ldquo;Project Crypto&rdquo; and CFTC approvals of
+    leveraged spot crypto and perpetual futures, domestic deregulation is seen as a strategic
+    necessity. The Cato Institute&rsquo;s perspective argues that over-regulating AI applications in
+    crypto would stifle financial evolution, asserting that onshore, regulated light-touch oversight
+    is structurally superior to driving technical innovation offshore to foreign adversaries.</p>
+
+  <h2>Conclusion</h2>
+  <p>Across insurance, trading, and crypto, we see that automation creates fast-paced and large-scale
+    risks where traditional safety nets are either withdrawn (AI insurance exclusions), aren&rsquo;t
+    adapted to modern technology (equity circuit breakers), or never existed (crypto). The proposed
+    policies addressing these risks largely center around increased human oversight over automated
+    decisions, forced transparency, and public backstops. The open question now isn&rsquo;t just how
+    to prevent AI from causing drastic market crashes, but also who pays when they do.</p>
+
+  <h2>References</h2>
+  <div class="memo__refs">
+    <ol>
+      <li>Cal. S.B. 1120 (2024) (prohibiting coverage denials based solely on automated tools without licensed human review; effective Jan. 1, 2025).</li>
+      <li>Conflicts of Interest Associated with the Use of Predictive Data Analytics by Broker-Dealers and Investment Advisers, Exchange Act Release No. 34-97990, Advisers Act Release No. IA-6353 (proposed July 26, 2023), withdrawn June 2025.</li>
+      <li>Financial Artificial Intelligence Risk Reduction (FAIRR) Act, S. ____, 118th Cong. (2023) (introduced Dec. 2023 by Sens. Mark Warner (D-VA) and John Kennedy (R-LA)).</li>
+      <li>Frontier Risk Oversight, National Transparency, Independent Evaluation, and Reporting Act (FRONTIER Act), H.R. 9925, 119th Cong. (2026) (introduced July 23, 2026 by Reps. Jay Obernolte (R-CA-23) and Lori Trahan (D-MA-03), with Reps. Scott Franklin (R-FL-18), Scott Peters (D-CA-50), Erin Houchin (R-IN-09), and Suhas Subramanyam (D-VA-10)). <a href="https://obernolte.house.gov/media/press-releases/obernolte-trahan-introduce-bipartisan-frontier-act-strengthen-oversight" target="_blank" rel="noopener">link</a></li>
+      <li>AI Foundation Model Transparency Act of 2026, H.R. 8094, 119th Cong. (2026) (introduced Mar. 26, 2026 by Rep. Donald S. Beyer, Jr. (D-VA-08), with cosponsors Reps. Michael Lawler (R-NY) and Sara Jacobs (D-CA)). <a href="https://www.congress.gov/119/bills/hr8094/BILLS-119hr8094ih.htm" target="_blank" rel="noopener">link</a></li>
+      <li>Great American AI Act of 2026 (discussion draft, released June 4, 2026 by Reps. Obernolte and Trahan; 269 pages; not formally introduced). <a href="https://obernolte.house.gov/media/press-releases/obernolte-trahan-release-discussion-draft-great-american-ai-act" target="_blank" rel="noopener">link</a></li>
+      <li>N.Y. Dep't of Fin. Servs., Circular Letter No. 7 (2024), Use of Artificial Intelligence Systems and External Consumer Data and Information Sources in Insurance Underwriting and Pricing.</li>
+      <li>NAIC, Artificial Intelligence and State Insurance Regulation, Issue Brief (Mar. 2026).</li>
+      <li>Estate of Gene B. Lokken v. UnitedHealth Grp., Inc., No. 23-cv-3514 (D. Minn.).</li>
+      <li>Moffatt v. Air Canada, 2024 BCCRT 149 (Feb. 14, 2024).</li>
+      <li>Press Release, H. Comm. on Fin. Servs. Democrats, Ranking Member Waters Launches Request for Information on AI Risks and Modernization in Financial Services (2026). <a href="https://democrats-financialservices.house.gov/news/documentsingle.aspx?DocumentID=415374" target="_blank" rel="noopener">link</a></li>
+      <li>Press Release, Sen. Elizabeth Warren, At AI Hearing, Warren Probes Witnesses on National Security, Economic Risks of Unregulated Big Tech, S. Comm. on Banking, Hous. &amp; Urban Affairs (June 2026). <a href="https://www.banking.senate.gov/newsroom/minority/at-ai-hearing-warren-probes-witnesses-on-national-security-economic-risks-of-unregulated-big-tech" target="_blank" rel="noopener">link</a></li>
+      <li>Letter from Sens. Elizabeth Warren, Richard Blumenthal, Tina Smith &amp; Chris Van Hollen to Fin. Stability Oversight Council (Jan. 22, 2026).</li>
+      <li>Letter from Sen. Elizabeth Warren to Sec'y of the Treasury Scott Bessent (2026).</li>
+      <li>Press Release, Rep. Jay Obernolte (June 4, 2026; July 23, 2026); Press Release, Rep. Lori Trahan (July 23, 2026).</li>
+      <li>Press Release, U.S. Dep't of the Treasury, Treasury Concludes the Artificial Intelligence Innovation Series (May 19, 2026). <a href="https://home.treasury.gov/news/press-releases/sb0540" target="_blank" rel="noopener">link</a></li>
+      <li>CFTC, The Flash Crash: The Impact of High Frequency Trading on an Electronic Market (staff paper); CFTC press releases on listed spot crypto (Dec. 2025) and perpetual futures (May 2026).</li>
+      <li>SEC, The SEC's Approach to Digital Assets: Inside Project Crypto (Atkins, Nov. 2025).</li>
+      <li>Bank of England, Financial Stability Report — July 2026.</li>
+      <li>Sarah Breeden, Deputy Governor, Bank of England, Agents of Change, remarks at the ECB Forum on Central Banking, Sintra (June 30, 2026). <a href="https://www.bankofengland.co.uk/speech/2026/june/sarah-breeden-panel-at-the-european-central-bank-forum-on-central-banking-2026" target="_blank" rel="noopener">link</a></li>
+      <li>Bank of England &amp; Financial Conduct Authority, Artificial Intelligence in UK Financial Services (2024 survey).</li>
+      <li>IMF, Global Economic and Financial Implications of Artificial Intelligence, IMF Notes 2026/002; International AI Safety Report 2026.</li>
+      <li>Kenneth S. Abraham &amp; Daniel Schwarcz, Courting Disaster, 27 Conn. Ins. L.J. 407 (2021); The Limits of Regulation by Insurance, 98 Ind. L.J. 739 (2023).</li>
+      <li>Tom Baker &amp; Rick Swedloff, Regulation by Liability Insurance, 60 UCLA L. Rev. 1412 (2013).</li>
+      <li>Michael S. Barr, Gabriel Rauterberg, Michael P. Wellman et al., Reinforcement Learning, Algorithms, and Manipulation Law (working paper).</li>
+      <li>Anat Lior, Insuring AI: The Role of Insurance in Artificial Intelligence Regulation, 35 Harv. J.L. &amp; Tech. 467 (2022).</li>
+      <li>Gabriel Rauterberg, How Artificial Intelligence Will Shape Securities Regulation, 2025 U. Chi. L. Rev. Online 1 (2025).</li>
+      <li>Cristian Trout, Liability and Insurance for Catastrophic Losses: The Nuclear Power Precedent and Lessons for AI, ICML Generative AI and Law Workshop (2024); Insuring Uninsurable Risks from AI: Government as Insurer of Last Resort, arXiv:2409.06672.</li>
+      <li>Building Pro-Worker AI, Brookings Inst. (Feb. 23, 2026). <a href="https://www.brookings.edu/articles/building-pro-worker-ai/" target="_blank" rel="noopener">link</a></li>
+      <li>Are Students and Workers Ready for AI?, Brookings Inst., The Current podcast (Dec. 5, 2025). <a href="https://www.brookings.edu/articles/are-students-and-workers-ready-for-ai" target="_blank" rel="noopener">link</a></li>
+      <li>Martin Eling, How Insurance Can Mitigate AI Risks, Brookings Inst. (Nov. 7, 2019).</li>
+      <li>Nicol Turner Lee, Paul Resnick &amp; Genie Barton, Algorithmic Bias Detection and Mitigation, Brookings Inst. (2019, updated 2023).</li>
+      <li>Jonathan W. Welburn et al., Rethinking Social and Economic Policy in the Age of General-Purpose Artificial Intelligence: Navigating the Cascading Impacts of AI Adoption, RAND Corp., RR-A3888-2 (2025). <a href="https://www.rand.org/pubs/research_reports/RRA3888-2.html" target="_blank" rel="noopener">link</a></li>
+      <li>Jennifer Huddleston, What Might Good AI Policy Look Like? Four Principles for a Light Touch Approach to Artificial Intelligence, Cato at Liberty (Nov. 9, 2023). <a href="https://www.cato.org/blog/what-might-good-ai-policy-look-four-principles-light-touch-approach-artificial-intelligence" target="_blank" rel="noopener">link</a></li>
+      <li>Regulatory Preemption or Patchwork? What's at Risk for AI Innovation and Consumers, Cato at Liberty (Nov. 25, 2025). <a href="https://www.cato.org/blog/preemption-or-patchwork-whats-risk-innovation-consumers" target="_blank" rel="noopener">link</a></li>
+      <li>AI Legislation, Export Restrictions, and Free Speech Caught in Between, Cato at Liberty (June 22, 2026). <a href="https://www.cato.org/blog/ai-legislation-export-restrictions-free-speech-caught-between" target="_blank" rel="noopener">link</a></li>
+      <li>Federal AI Power Grab Could End State Protections for Kids and Workers, Heritage Found. (June 2025). <a href="https://www.heritage.org/big-tech/commentary/federal-ai-power-grab-could-end-state-protections-kids-and-workers" target="_blank" rel="noopener">link</a></li>
+      <li>Big Tech's AI Power Grab, Heritage Found. <a href="https://www.heritage.org/big-tech/commentary/big-techs-ai-power-grab" target="_blank" rel="noopener">link</a></li>
+      <li>California's Gift to Big Tech, Heritage Found. <a href="https://www.heritage.org/big-tech/commentary/californias-gift-big-tech" target="_blank" rel="noopener">link</a></li>
+      <li>Epoch AI, How Concentrated Is AI Compute? <a href="https://epoch.ai/data-insights/compute-concentration" target="_blank" rel="noopener">link</a></li>
+      <li>Better Markets, AI in the Financial Markets: Potential Benefits, Major Risks, and Regulators Trying to Keep Up. <a href="https://bettermarkets.org/analysis/ai-in-the-financial-markets-potential-benefits-major-risks-and-regulators-trying-to-keep-up/" target="_blank" rel="noopener">link</a></li>
+      <li>Bank Policy Inst., Response to Request for Information; Regulatory Reform on Artificial Intelligence (Oct. 27, 2025). <a href="https://bpi.com/wp-content/uploads/2025/10/BPI-OSTP-AI-RFI-Response-10.27.25.pdf" target="_blank" rel="noopener">link</a></li>
+      <li>Lawfare / Institute for Law &amp; AI, Healthy Insurance Markets Will Be Critical for AI Governance.</li>
+      <li>SIFMA, The 10th Anniversary of the Flash Crash (2020).</li>
+      <li>TechPolicy.Press, Where State AI Legislation Stands Half Way Into 2026.</li>
+      <li>ArentFox Schiff, House GAAIA Discussion Draft Proposes Federal AI Governance Framework (June 16, 2026).</li>
+      <li>Alston &amp; Bird (Apr. 9, 2026).</li>
+      <li>Covington, White House, Blackburn Introduce Visions of Comprehensive Federal AI Policy (Mar. 26, 2026).</li>
+      <li>Goodwin Procter, Congress and State Lawmakers Are Racing to Keep Up With AI (June 24, 2026).</li>
+      <li>K&amp;L Gates, White House Releases National AI Policy Framework (Mar. 24, 2026).</li>
+      <li>Fenwick, The End of "Silent AI"?; Hunton, The Continued Proliferation of AI Exclusions.</li>
+      <li>NVIDIA, State of AI in Financial Services: 2026 Trends (Jan. 22, 2026). <a href="https://www.nvidia.com/en-us/industries/finance/ai-financial-services-report/" target="_blank" rel="noopener">link</a></li>
+      <li>SEC and AI: What Financial Firms Need to Know in 2026, Reg Intel (Apr. 29, 2026). <a href="https://reg-intel.com/sec-and-ai-what-financial-firms-need-to-know-in-2026/" target="_blank" rel="noopener">link</a></li>
+      <li>Your AI Claims Could Be Securities Fraud, Consilium Law (Mar. 5, 2026).</li>
+      <li>Guest Post: AI, the SEC, and the 2026 Reporting Season, D&amp;O Diary (Feb. 5, 2026).</li>
+      <li>Michael Kitces, AI Compliance: Applying Existing SEC Regulatory Frameworks (Dec. 9, 2025). <a href="https://www.kitces.com/blog/artificial-intelligence-compliance-considerations-investment-advisers-sec-securities-exchange-commission-legal-regulation-framework/" target="_blank" rel="noopener">link</a></li>
+      <li>Warren Urges Congress to Boost Antitrust Oversight of AI and Merger Reviews, Bloomberg (June 24, 2026).</li>
+      <li>Roll Call (June 4, 2026).</li>
+      <li>CoinGecko and FTI Consulting analyses of the October 10, 2025 liquidation event; Bloomberg and CoinDesk reporting on Binance compensation programs.</li>
     </ol>
-
-    <h3 class="awards__title reveal">a few honours</h3>
-    <ul class="awards reveal">
-      <li>
-        <span class="awards__year">2025</span>
-        <p><strong>U.S. Presidential Scholar Finalist</strong> — one of the top 161 high school students in the country recognised for academic excellence.</p>
-      </li>
-      <li>
-        <span class="awards__year">2023 — 2024</span>
-        <p><strong>2× AIME qualifier</strong>, and Young Women in Mathematics certificate winner from both Jane Street and Citadel Securities.</p>
-      </li>
-    </ul>
   </div>
-</section>
 
-<!-- ============================ toolbox ============================ -->
-<section class="section section--tint" id="toolbox">
-  <div class="wrap">
-    <header class="section__head reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg> in the toolbox</h2>
-      <p class="sub">things i reach for often.</p>
-    </header>
+</article>
 
-    <ul class="toolbox reveal">
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chart"/></svg><span>python</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg><span>c</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg><span>sql</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg><span>java</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fern"/></svg><span>excel</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg><span>llm evaluation</span></li>
-      <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lantern"/></svg><span>data cleaning</span></li>
-    </ul>
-
-    <p class="toolbox__note reveal">
-      languages: english (native), mandarin (fluent), spanish (reading proficiency).
-      away from the screen: women&rsquo;s foil fencing and refereeing, violin, and blog writing.
-    </p>
-  </div>
-</section>
-
-<!-- ============================ gallery ============================ -->
-<section class="section" id="gallery">
-  <div class="wrap">
-    <header class="section__head reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-camera"/></svg> pictures</h2>
-      <p class="sub">a glimpse into my life.</p>
-    </header>
-
-    <div class="gallery reveal">
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 1">
-          <img src="assets/img/neon-1.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 1</figcaption>
-      </figure>
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 2">
-          <img src="assets/img/neon-2.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 2</figcaption>
-      </figure>
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 3">
-          <img src="assets/img/neon-3.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 3</figcaption>
-      </figure>
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 4">
-          <img src="assets/img/neon-4.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 4</figcaption>
-      </figure>
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 5">
-          <img src="assets/img/neon-5.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 5</figcaption>
-      </figure>
-      <figure>
-        <button type="button" class="shot" aria-label="Open photo 6">
-          <img src="assets/img/neon-6.svg" alt="Placeholder artwork" loading="lazy" width="800" height="800">
-        </button>
-        <figcaption class="todo todo--cap">Caption 6</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ contact ============================ -->
-<section class="section section--tint" id="contact">
-  <div class="wrap wrap--narrow">
-    <div class="note reveal">
-      <h2 class="h2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> say hello</h2>
-      <p>get in touch!</p>
-
-      <div class="hero__links hero__links--center">
-        <button class="btn btn--primary" type="button" data-mail="reesewang@college.harvard.edu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> reesewang@college.harvard.edu</button>
-        <a class="btn" href="https://www.linkedin.com/in/reese-wang-harvard-freshman/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg> linkedin</a>
-        <a class="btn" href="https://github.com/Eseer-RW" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg> github</a>
-        <a class="btn" href="https://substack.com/@univerese553" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-substack"/></svg> substack</a>
-        <a class="btn" href="https://www.instagram.com/uni_v_erese553/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-instagram"/></svg> instagram</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ============================ footer ============================ -->
 <footer class="footer">
   <div class="footer__ribbon">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg>
     <span>do what you love, love what you do</span>
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg>
   </div>
-  <p class="footer__meta">
-    © <span id="year">2026</span> reese wang · <a href="index.html">daylight version →</a>
-  </p>
+  <p class="footer__meta">© <span id="year">2026</span> reese wang · <a href="index.html">back to the site</a></p>
 </footer>
-
-<!-- ============================ lightbox ============================ -->
-<dialog id="lightbox" class="lightbox" aria-label="Photo viewer">
-  <button class="lightbox__close" type="button" aria-label="Close">×</button>
-  <img id="lightbox-img" src="" alt="" />
-  <p id="lightbox-cap" class="lightbox__cap"></p>
-</dialog>
-
-<!-- ============================ email popover ============================ -->
-<dialog id="mailbox" class="mailbox" aria-labelledby="mailbox-title">
-  <div class="mailbox__inner">
-    <button class="mailbox__close" type="button" aria-label="Close">×</button>
-    <h2 class="mailbox__title" id="mailbox-title">say hello</h2>
-    <p class="mailbox__lead">here it is — copy it wherever you like.</p>
-    <div class="mailbox__row">
-      <input id="mailbox-addr" class="mailbox__addr" type="text" readonly
-             value="reesewang@college.harvard.edu" aria-label="Email address" spellcheck="false" />
-      <button id="mailbox-copy" class="btn btn--primary" type="button">copy</button>
-    </div>
-    <p class="mailbox__hint">
-      or <a href="mailto:reesewang@college.harvard.edu">open it in your mail app</a>
-    </p>
-  </div>
-</dialog>
 
 <!-- ============================ icon + illustration sprite ============================ -->
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -507,6 +663,8 @@
   </defs>
 </svg>
 
-<script src="assets/js/futuristic.js" defer></script>
+<script>
+  document.getElementById("year").textContent = String(new Date().getFullYear());
+</script>
 </body>
 </html>

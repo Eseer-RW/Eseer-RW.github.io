@@ -14,6 +14,9 @@ futuristic.html            canopy version (nocturnal, bioluminescent green)
   assets/css/futuristic.css  single dark palette, luminous rules
   assets/js/futuristic.js    canvas-painted night scene, reveals, lightbox
 
+memo.html                  the AI implications research memorandum, set as a
+  assets/css/memo.css        reading page; assets/memo.pdf is rendered from it
+
 assets/img/*.svg           artwork — the gallery tiles are still placeholders
 ```
 

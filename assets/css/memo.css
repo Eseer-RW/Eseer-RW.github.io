@@ -1,0 +1,96 @@
+/* =========================================================================
+   the memo — a long-form reading page. borrows the site's palette and type
+   from styles.css and adds only what prose needs.
+   ========================================================================= */
+
+.memo {
+  width: min(760px, 100% - 3rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 4rem;
+}
+
+.memo__back {
+  display: inline-flex; align-items: center; gap: .45em;
+  font-size: .9rem; text-decoration: none; color: var(--ink-soft);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.memo__back:hover { color: var(--sage-deep); }
+.memo__back .ico { width: 1em; height: 1em; }
+
+.memo__eyebrow {
+  font-size: .78rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--blush-deep); margin: 0 0 .6em;
+}
+
+.memo__title {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.12;
+  color: var(--sage-deep); margin: 0 0 .5rem; text-wrap: balance;
+}
+
+.memo__meta {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.4rem;
+  padding-bottom: 1.6rem; margin-bottom: 2.2rem;
+  border-bottom: 1px solid var(--line);
+  font-size: .92rem; color: var(--ink-faint);
+}
+.memo__meta strong { color: var(--ink-soft); font-weight: 600; }
+
+.memo__actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 2.6rem; }
+
+.memo__summary {
+  padding: 1.4rem 1.6rem;
+  background: var(--paper-2);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 var(--rad) var(--rad) 0;
+  margin-bottom: 2.6rem;
+}
+.memo__summary h2 {
+  font-family: var(--serif); font-size: 1.25rem; text-transform: lowercase;
+  color: var(--sage-deep); margin: 0 0 .6em;
+}
+.memo__summary p:last-child { margin-bottom: 0; }
+
+.memo h2 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 1.95rem); line-height: 1.2;
+  color: var(--sage-deep); text-transform: lowercase;
+  margin: 2.8rem 0 .8rem; text-wrap: balance;
+}
+.memo h3 {
+  font-size: 1.1rem; font-family: var(--sans); font-weight: 600;
+  text-transform: none; color: var(--ink); margin: 1.8rem 0 .5rem;
+}
+.memo h4 {
+  font-size: .98rem; font-weight: 600; color: var(--ink-soft);
+  margin: 1.2rem 0 .35rem;
+}
+
+.memo p { max-width: 68ch; color: var(--ink-soft); }
+.memo p strong, .memo li strong { color: var(--ink); }
+
+.memo ul, .memo ol { max-width: 68ch; color: var(--ink-soft); padding-left: 1.3rem; }
+.memo li { margin-bottom: .55em; }
+.memo ul ul, .memo ol ol, .memo ul ol, .memo ol ul { margin-top: .55em; }
+
+.memo em.case { font-style: italic; color: var(--ink); }
+
+/* references: small type, hanging indent, no bullets */
+.memo__refs { margin-top: 1rem; }
+.memo__refs ol { list-style: none; padding: 0; max-width: 74ch; }
+.memo__refs li {
+  padding-left: 1.6rem; text-indent: -1.6rem;
+  font-size: .86rem; line-height: 1.6; color: var(--ink-faint);
+  margin-bottom: .7em; overflow-wrap: anywhere;
+}
+.memo__refs a { color: var(--ink-faint); }
+.memo__refs a:hover { color: var(--sage-deep); }
+
+@media print {
+  .memo__back, .memo__actions, .nav, .footer, .grain, .drift { display: none !important; }
+  .memo { width: 100%; padding: 0; }
+  .memo p, .memo li { color: #222; }
+  .memo h2 { color: #2c4d2a; page-break-after: avoid; }
+  .memo__summary { background: #f4f4ee; border-left: 2px solid #6f8d5f; }
+  .memo__refs li { font-size: .78rem; }
+}
