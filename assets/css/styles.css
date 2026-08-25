@@ -389,8 +389,18 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
 
-.card__art { aspect-ratio: 400 / 220; background: var(--paper-3); }
-.card__art svg { width: 100%; height: 100%; display: block; }
+.card__art { aspect-ratio: 400 / 220; background: var(--paper-3);
+             position: relative; overflow: hidden; }
+.card__art svg,
+.card__art img { position: absolute; inset: 0;
+                 width: 100%; height: 100%; display: block; object-fit: cover; }
+/* each card art is a tall illustration cropped to a banner: nudge the
+   crop window so the subject of each one survives the trim. */
+.card__art--1 img { object-position: 50% 64%; }
+.card__art--2 img { object-position: 50% 62%; }
+.card__art--3 img { object-position: 50% 56%; }
+.card__art--4 img { object-position: 50% 58%; }
+.card__art--5 img { object-position: 50% 62%; }
 
 /* each card gets its own clearing and its own hour */
 .card__art--1 { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;
