@@ -3,26 +3,22 @@
 Source for **https://eseer-rw.github.io/**. Plain HTML/CSS/JS — no framework, no build
 step, no `npm install`. Push to `main` and GitHub Pages redeploys.
 
-Two versions of the same content share this repo:
-
 ```
-index.html                 daylight version (ghibli-core, cream + sage)
+index.html                 the site
   assets/css/styles.css      palette + layout, day/evening themes
   assets/js/main.js          theme toggle, reveals, drifting leaves, lightbox
-
-futuristic.html            canopy version (nocturnal, bioluminescent green)
-  assets/css/futuristic.css  single dark palette, luminous rules
-  assets/js/futuristic.js    canvas-painted night scene, reveals, lightbox
+  assets/js/valley.js        the canvas-painted hero scene
 
 memo.html                  the AI implications research memorandum, set as a
   assets/css/memo.css        reading page; assets/memo.pdf is rendered from it
 
-assets/img/*.svg           artwork — the gallery tiles are still placeholders
+assets/img/reese.jpg       portrait
+assets/img/card-[1-5].jpg  project card images
+assets/img/photo-[1-8].jpg gallery photos
+assets/img/*.svg           drawn artwork: the favicon, and unused placeholders
 ```
 
-`index.html` is what `https://eseer-rw.github.io/` serves. To make the canopy
-version the front door instead, swap the two filenames. They cross-link from
-the footer, so both stay reachable either way.
+`index.html` is what `https://eseer-rw.github.io/` serves.
 
 ## editing it
 
@@ -43,8 +39,6 @@ To add a role or degree, copy an `<li>` in the `.timeline` list. Newest first.
 Every other placeholder is filled — there are no `class="todo"` boxes left in
 either page.
 
-- **Content lives in two files.** Edits to the bio, projects, or timeline need making in
-  both `index.html` and `futuristic.html` until you settle on one.
 - **Resume PDF.** The resume button scrolls to *the path so far*, which carries the same
   information. To offer a download instead, put a file at `assets/resume.pdf` and point
   that button at it — but note the PDF you have contains your phone number and home
@@ -69,12 +63,6 @@ the light forest is the design, and a system preference should not swap it for a
 different artwork. The lantern button in the nav switches to the evening version, and
 that choice is remembered in `localStorage`.
 
-**Canopy** — `futuristic.css` commits to a single nocturnal palette, so there's no
-toggle. Its tokens are `--void` (ground), `--bio` (the bioluminescent accent),
-`--lantern` (warm amber), and `--blossom`, which appears exactly once, on the pink
-tree in the hero and the quote rule. The hero scene is painted on `<canvas>` from a
-fixed seed, so the skyline is identical on every load.
-
 ## what's built in
 
 - Day / evening themes, with the hero valley repainted for each
@@ -89,8 +77,7 @@ fixed seed, so the skyline is identical on every load.
 - Keyboard accessible: skip link, visible focus rings, real buttons
 - Prints cleanly
 
-Fonts (Cormorant Garamond + Nunito Sans on the daylight version; Sora, Commissioner
-and JetBrains Mono on the canopy one) load from Google Fonts as a progressive
+Fonts (Cormorant Garamond + Nunito Sans) load from Google Fonts as a progressive
 enhancement. If they're blocked or offline, the local serif/sans fallback stack takes
 over and the layout doesn't shift. To go fully self-hosted, delete the `<link>` tags in
 `<head>` and drop the `.woff2` files in `assets/fonts/`.
