@@ -10,7 +10,8 @@ index.html                 the site
   assets/js/valley.js        the canvas-painted hero scene
 
 memo.html                  the AI implications research memorandum, set as a
-  assets/css/memo.css        reading page; assets/memo.pdf is rendered from it
+  assets/css/memo.css        reading page. assets/memo.pdf is Reese's own PDF —
+                             do not regenerate it from the page
 
 assets/img/reese.jpg       portrait
 assets/img/card-[1-5].jpg  project card images

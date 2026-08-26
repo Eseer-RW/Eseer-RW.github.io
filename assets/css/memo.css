@@ -94,3 +94,19 @@
   .memo__summary { background: #f4f4ee; border-left: 2px solid #6f8d5f; }
   .memo__refs li { font-size: .78rem; }
 }
+
+/* numbered / lettered items inside a section */
+.memo__items { list-style: none; padding-left: 0; }
+.memo__items > li {
+  position: relative; padding-left: 1.1rem; margin-bottom: .9em; max-width: 68ch;
+}
+.memo__items > li::before {
+  content: ""; position: absolute; left: 0; top: .72em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
+}
+.memo__notes-lead { font-size: .9rem; color: var(--ink-faint); max-width: 60ch; }
+.memo__refs ol { counter-reset: note; }
+.memo__refs li { counter-increment: note; }
+.memo__refs li::before {
+  content: counter(note) ". "; color: var(--sage-deep); font-variant-numeric: tabular-nums;
+}
