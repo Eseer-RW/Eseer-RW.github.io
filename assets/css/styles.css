@@ -401,6 +401,8 @@ strong { font-weight: 600; color: var(--ink); }
 .card__art--3 img { object-position: 50% 56%; }
 .card__art--4 img { object-position: 50% 58%; }
 .card__art--5 img { object-position: 50% 62%; }
+.card__art--6 img { object-position: 50% 52%; }
+.card__art--7 img { object-position: 50% 58%; }
 
 /* each card gets its own clearing and its own hour */
 .card__art--1 { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;
@@ -411,10 +413,6 @@ strong { font-weight: 600; color: var(--ink); }
                 --art-tree: #6a9c85; --art-water: #b9d8ca; }
 .card__art--4 { --art-sky: #f1f3d2; --art-far: #ddebb5; --art-near: #b3c581;
                 --art-tree: #85a45c; --art-water: #d2dfb8; }
-.card__art--6 { --art-sky: #e6f2dd; --art-far: #cee7c3; --art-near: #a6ca97;
-                --art-tree: #71a173; --art-water: #c4dcc6; }
-.card__art--7 { --art-sky: #eef4d9; --art-far: #d6e9bd; --art-near: #b0cd8f;
-                --art-tree: #7ba463; --art-water: #cde2c2; }
 
 .a-sky    { fill: var(--art-sky); }
 .a-far    { fill: var(--art-far); }

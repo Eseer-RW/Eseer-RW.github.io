@@ -21,7 +21,7 @@ compiled-programs.html     the compiled-program-adoption project page (Amin Lab)
                              Also shares assets/css/memo.css
 
 assets/img/reese.jpg       portrait
-assets/img/card-[1-5].jpg  project card images
+assets/img/card-[1-7].jpg  project card images
 assets/img/photo-[1-8].jpg gallery photos
 assets/img/*.svg           drawn artwork: the favicon, and unused placeholders
 ```
@@ -35,9 +35,7 @@ hero → about → work → journey → toolbox → pictures → contact. Edit t
 there's no templating layer in the way.
 
 To add a project, copy an `<article class="card">` block in `#projects` and change the
-title, description, tags, and link. The two research cards use the drawn
-`#art-3` / `#art-1` illustrations instead of photos, as placeholders — swap in an
-`<img>` like the other five when there are pictures for them. The `card__art--a` / `--b` / `--c` class picks which
+title, description, tags, and link. The `card__art--a` / `--b` / `--c` class picks which
 of the three illustrations sits at the top — they're just different times of day.
 
 To add a role or degree, copy an `<li>` in the `.timeline` list. Newest first.
