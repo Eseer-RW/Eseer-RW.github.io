@@ -413,6 +413,8 @@ strong { font-weight: 600; color: var(--ink); }
                 --art-tree: #85a45c; --art-water: #d2dfb8; }
 .card__art--6 { --art-sky: #e6f2dd; --art-far: #cee7c3; --art-near: #a6ca97;
                 --art-tree: #71a173; --art-water: #c4dcc6; }
+.card__art--7 { --art-sky: #eef4d9; --art-far: #d6e9bd; --art-near: #b0cd8f;
+                --art-tree: #7ba463; --art-water: #cde2c2; }
 
 .a-sky    { fill: var(--art-sky); }
 .a-far    { fill: var(--art-far); }
