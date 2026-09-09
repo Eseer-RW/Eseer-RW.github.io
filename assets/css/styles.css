@@ -411,6 +411,8 @@ strong { font-weight: 600; color: var(--ink); }
                 --art-tree: #6a9c85; --art-water: #b9d8ca; }
 .card__art--4 { --art-sky: #f1f3d2; --art-far: #ddebb5; --art-near: #b3c581;
                 --art-tree: #85a45c; --art-water: #d2dfb8; }
+.card__art--6 { --art-sky: #e6f2dd; --art-far: #cee7c3; --art-near: #a6ca97;
+                --art-tree: #71a173; --art-water: #c4dcc6; }
 
 .a-sky    { fill: var(--art-sky); }
 .a-far    { fill: var(--art-far); }
