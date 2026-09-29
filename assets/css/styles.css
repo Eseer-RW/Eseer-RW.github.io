@@ -403,6 +403,7 @@ strong { font-weight: 600; color: var(--ink); }
 .card__art--5 img { object-position: 50% 62%; }
 .card__art--6 img { object-position: 50% 52%; }
 .card__art--7 img { object-position: 50% 58%; }
+.card__art--8 img { object-position: 50% 68%; }
 
 /* each card gets its own clearing and its own hour */
 .card__art--1 { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;
