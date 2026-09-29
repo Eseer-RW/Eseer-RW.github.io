@@ -71,7 +71,7 @@
 
 <!-- ============================ hero ============================ -->
 <section class="hero" id="top">
-  <canvas id="valley" class="valley" aria-hidden="true"></canvas>
+  <div class="valley" aria-hidden="true"></div>
 
   <div class="hero__card reveal">
     <p class="eyebrow"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sprig"/></svg> hello, welcome in</p>
@@ -253,8 +253,8 @@
       </article>
       <article class="card reveal">
         <div class="card__art card__art--8">
-          <img src="assets/img/card-8.jpg" alt="Illustration: a small house under a great tree in the rain"
-               loading="lazy" width="735" height="1308" />
+          <img src="assets/img/card-8.jpg" alt="Illustration: a girl tending plants in a sunlit greenhouse"
+               loading="lazy" width="736" height="977" />
         </div>
         <div class="card__body">
           <h3>can llm agents tell when they&rsquo;re being watched?</h3>
@@ -612,7 +612,9 @@
   </defs>
 </svg>
 
-<script src="assets/js/valley.js" defer></script>
+<!-- the painted canvas valley is retired for the photo backgrounds in styles.css;
+     to bring it back, restore <canvas id="valley" class="valley"> in the hero and this tag.
+<script src="assets/js/valley.js" defer></script> -->
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

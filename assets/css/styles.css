@@ -277,7 +277,9 @@ strong { font-weight: 600; color: var(--ink); }
   overflow: hidden;
 }
 
-.valley { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; display: block; }
+.valley { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; display: block;
+          background: var(--paper-3) url("../img/hero-day.jpg") center / cover no-repeat; }
+[data-theme="night"] .valley { background-image: url("../img/hero-night.jpg"); }
 
 .sky-a { stop-color: var(--sky-1); }
 .sky-b { stop-color: var(--sky-2); }
@@ -403,7 +405,7 @@ strong { font-weight: 600; color: var(--ink); }
 .card__art--5 img { object-position: 50% 62%; }
 .card__art--6 img { object-position: 50% 52%; }
 .card__art--7 img { object-position: 50% 58%; }
-.card__art--8 img { object-position: 50% 68%; }
+.card__art--8 img { object-position: 50% 45%; }
 
 /* each card gets its own clearing and its own hour */
 .card__art--1 { --art-sky: #e8f4d4; --art-far: #cfe6b4; --art-near: #a3c880;

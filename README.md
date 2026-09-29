@@ -7,7 +7,7 @@ step, no `npm install`. Push to `main` and GitHub Pages redeploys.
 index.html                 the site
   assets/css/styles.css      palette + layout, day/evening themes
   assets/js/main.js          theme toggle, reveals, drifting leaves, lightbox
-  assets/js/valley.js        the canvas-painted hero scene
+  assets/js/valley.js        the old canvas-painted hero scene (not loaded)
 
 memo.html                  the AI implications research memorandum, set as a
   assets/css/memo.css        reading page. assets/memo.pdf is Reese's own PDF —
@@ -63,12 +63,11 @@ foliage yellow-green where it is lit and cool where it is not. Page colour lives
 `:root` at the top of `styles.css`, with a matching `[data-theme="night"]` block for
 the evening version.
 
-The hero scene is painted on `<canvas>`, which cannot read CSS variables, so its
-palette lives in `assets/js/valley.js` as the `DAY` and `NIGHT` objects — sky, sun
-bloom, light rays, the three treeline bands, mist, water, reflections, bank and
-reeds. Edit those to retime the scene; the card illustrations and gallery
-placeholders are tuned to match and live in `styles.css` (`--art-*`) and
-`assets/img/`.
+The hero background is a photo per theme: `assets/img/hero-day.jpg` and
+`assets/img/hero-night.jpg`, set on `.valley` in `styles.css`. The old canvas-painted
+valley is still in `assets/js/valley.js`; to bring it back, restore the
+`<canvas id="valley" class="valley">` in the hero and the commented-out script tag at
+the bottom of `index.html`.
 
 The site always opens in daylight, whatever the visitor's OS dark-mode setting is —
 the light forest is the design, and a system preference should not swap it for a
@@ -77,7 +76,7 @@ that choice is remembered in `localStorage`.
 
 ## what's built in
 
-- Day / evening themes, with the hero valley repainted for each
+- Day / evening themes, each with its own hero photo
 - Drifting pollen and leaves on `<canvas>`, paused when the tab is hidden
 - Scroll-reveal animations and a vine-coloured reading progress bar
 - Scroll-spy nav highlighting the section you're in
