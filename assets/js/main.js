@@ -21,7 +21,7 @@
     toggle.setAttribute("aria-label", label);
     toggle.setAttribute("title", label);
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", night ? "#1e2620" : "#fbf7ee");
+    if (meta) meta.setAttribute("content", night ? "#1e2620" : "#eef2e3");
   }
 
   var stored = null;

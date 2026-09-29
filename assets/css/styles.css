@@ -5,10 +5,10 @@
 
 :root {
   /* --- day (default) --- */
-  --paper:        #fbf7ee;
-  --paper-2:      #f3eee0;
-  --paper-3:      #ece5d3;
-  --card:         #fffdf7;
+  --paper:        #eef2e3;
+  --paper-2:      #e4ebd6;
+  --paper-3:      #d9e2c9;
+  --card:         #f8faf1;
 
   --ink:          #37402f;
   --ink-soft:     #6c7761;
@@ -16,7 +16,7 @@
 
   --sage:         #8ba573;
   --sage-deep:    #5d7450;
-  --sage-pale:    #dde5cf;
+  --sage-pale:    #d2ddc0;
   --blush:        #f0d6d3;
   --blush-deep:   #c58b85;
   --gold:         #d7b06b;
